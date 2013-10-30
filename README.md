@@ -8,10 +8,8 @@
 
 ![](http://banot.etsii.ull.es/alu4120/sytw1314/kwyjibo/imagenes/about_readme.png)
 
-KWYJIBO is a project for **Sistemas y Tecnologías Web**
+**KWYJIBO** is a project for **Sistemas y Tecnologías Web**
 
-Escuela Técnica Superior de Ingeniería Informática
+[Escuela Técnica Superior de Ingeniería Informática](http://www.etsii.ull.es)
 
-Universidad de La Laguna
-
-All rights reserved
+[Universidad de La Laguna](http://www.ull.es)
