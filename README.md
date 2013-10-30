@@ -1,3 +1,1 @@
-<center>
 ![](http://banot.etsii.ull.es/alu4120/sytw1314/kwyjibo/imagenes/logo_readme.png)
-</center>
