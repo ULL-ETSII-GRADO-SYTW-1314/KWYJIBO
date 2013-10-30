@@ -2,7 +2,7 @@
 
 ![](http://banot.etsii.ull.es/alu4120/sytw1314/kwyjibo/imagenes/grupo_readme.png)
 
-| ALUMNO | CORREO |
+| STUDENT | EMAIL |
 | ---------- | ---------- |
 | Carlos David Rodríguez Brito (**Coordinator**)| alu0100543322@ull.edu.es |
 | Fernando Cifuentes González | alu0100543193@ull.edu.es |
