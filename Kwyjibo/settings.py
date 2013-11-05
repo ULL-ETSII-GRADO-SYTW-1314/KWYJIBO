@@ -1,4 +1,9 @@
 # Django settings for Kwyjibo project.
+import os
+import django
+
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -68,6 +73,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+    os.path.join(SITE_ROOT, '../static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -107,6 +113,7 @@ ROOT_URLCONF = 'Kwyjibo.urls'
 WSGI_APPLICATION = 'Kwyjibo.wsgi.application'
 
 TEMPLATE_DIRS = (
+    os.path.join(SITE_ROOT, '../templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -121,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'Recetas',
 )
 
 # A sample logging configuration. The only tangible logging
