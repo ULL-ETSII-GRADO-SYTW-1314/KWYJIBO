@@ -1,0 +1,43 @@
+{% extends "style.css" %}
+#foto_fondo{
+	width: 100%;
+	margin: 0 0 0 0;
+}
+
+body{
+
+  background-image: url("imagenes/aro.jpg");
+  color: white;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: 200% 100%;
+}
+
+#estilo{
+	margin: 100px 0 100px 50px;
+}
+
+#letra{
+  margin-top: 30px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  border.radius: 15px 15px 15px 15px; 
+  -moz-border-radius:15px 15px 15px 15px;
+  -webkit-border-radius:15px 15px 15px 15px;
+  behavior:url(border-radius.htc);
+  
+}
+
+p{
+	margin: 10px 10px 10px 10px;
+}
+
+form{
+  margin-left: 20px;
+}
+
+#espacio{
+  margin-left: 15px;
+  margin-bottom: 15px;
+}

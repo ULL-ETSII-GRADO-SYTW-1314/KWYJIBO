@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+    {% block title %}Subir Receta{% endblock %}
+    {% block head_link %}
+    {% endblock %} 
+
+    {% block encabezado %} <h1> SUBE TU RECETA! </h1> {% endblock %}
+
+    {% block contenido %}
+
+        
+        {% for e in errores %}
+        <div class="alert alert-error">
+            <ul>
+                <li>{{ e }}</li>
+            </ul>
+        </div>
+        {% endfor %}
+
+
+        <div id="form_subir_receta" class="span6">
+            <form name="form" action="/subir_receta/" method="POST" class="form-signin">
+                {% csrf_token %} 
+                {{ form.as_p }}
+                <input id="boton" type="submit" class="btn btn-inverse" value="Enviar" />
+            </form>   
+        </div>
+        
+    {% endblock %}

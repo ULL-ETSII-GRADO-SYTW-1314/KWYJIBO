@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="/static/jquery/jquery-1.9.1.min.js">
+		<link rel="stylesheet" type="text/css" href="/static/jquery/jquery.slides.min.js">
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+	    {% block head_link %}
+	    {% endblock head_link %}
+	    
+	    <title>{% block title %}{% endblock title %}</title>
+	</head>
+
+	<body>
+		
+	    <header class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <nav>
+                        <ul class="nav pull-right">
+                          {% block barra_superior %}{% endblock barra_superior%}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <br/>
+
+        <h1>{% block encabezado %}{% endblock encabezado%}</h1>
+     	<div id="wrap">
+			<div class="container">
+				{% block contenido %}{% endblock contenido%}
+			</div>
+			   {% block atras%}{% endblock atras%}
+
+		</div>
+
+	
+	</body>
+	<footer>
+		<div class="container">
+			
+		    	<li class="pull-right"><a name="about" href="/about/">About <i class="icon-list icon-black"></i></li></a>
+		      	<li class="pull-right"><a id="contact" name="contact" href="/contact-us/" >Contact <i class="icon-comment icon-black"></i></a></li>
+		    
+	  	</div>	
+	</footer>
+</html>
+
+  
+   

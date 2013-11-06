@@ -1,0 +1,71 @@
+{% extends "style.css" %}
+
+
+#foto_fondo{
+	width: 100%;
+	margin: 0 0 0 0;
+}
+
+img.imgDoubleBorderLightGray { 
+	border: 5px solid #dadada; 
+	padding:5px;
+}
+
+body{
+
+  background-image: url("imagenes/perfil.jpg");
+  color: white;
+  background-repeat:no-repeat;
+  background-position: right-center;
+  background-color: black;
+  background-size: 100% 90%;
+}
+
+p{
+  margin: 15px 15px 15px 15px;
+}
+
+#foto{
+  margin-top: 20px;
+}
+
+#letra{
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border.radius: 15px 15px 15px 15px; 
+  -moz-border-radius:15px 15px 15px 15px;
+  -webkit-border-radius:15px 15px 15px 15px;
+  behavior:url(border-radius.htc);
+  margin-bottom: 100px;
+  
+}
+
+#foto_perfil{
+  width: 60px;
+  height: 60px;
+}
+
+#link{
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+
+#button{
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
+
+#imagen{
+  margin-top: 50px;
+}
+
+#espacio{
+  margin: 10px 10px 10px 10px;
+}
+
+#atras{
+  text-align: center;
+  margin-left: 70px;
+}

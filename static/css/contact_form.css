@@ -1,0 +1,22 @@
+{% extends "style.css" %}
+h1{
+    color: black; 
+}
+
+
+body{
+    margin-top: 80px;
+    background-image: url("imagenes/basket.jpg");
+    background-size: 100% 90%;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color: black;
+    color: black;
+}
+
+#espacio{
+  margin-bottom: 400px;
+}
+
+
+
