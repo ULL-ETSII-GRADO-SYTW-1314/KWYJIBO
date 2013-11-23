@@ -4,9 +4,30 @@
 	{% endblock titulo %}
 
 	{% block header %}
-		<li> <a href="#"> Sign in </a> </li>
+		<li> <a href="#"> Log in </a> </li>
 	{% endblock header %}
 
-	{% block titulo_seccion %}
-		<h1> TÍTULO_SELECCION DEL INDEX.HTML</h1>
-	{% endblock titulo_seccion %}
+	{% block body %}
+		<center>
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<div class="jumbotron well">
+							<br>
+							<IMG SRC="/static/images/logo_web.png">
+							<p>
+								<a href="#" class="btn btn-default btn-large"> Log in </a> <small>or</small> <a href="#" class="btn btn-success btn-large"> Sign in </a>
+							</p>						
+						</div>
+					</div>
+				</div>
+
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<p> <strong>KWYJIBO</strong> es un proyecto para <strong>Sistemas y Tecnologías Web</strong> </p>
+						<p>  Escuela Técnica Superior de Ingeniería Informática Universidad de La Laguna </p>
+					</div>
+				</div>
+			</div>
+		</center>
+	{% endblock body %}

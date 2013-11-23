@@ -3,8 +3,10 @@
 <html lang = "es">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
 		<title>
 			{% block titulo %}
@@ -13,7 +15,7 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
+		<header class="navbar navbar-default" role="navigation">
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<a class="navbar-brand" href="#"> KWYJIBO </a>
 
@@ -22,7 +24,7 @@
 			    	{% endblock header %}
 			    </ul>
 			</div>
-		</nav>
+		</header>
 
 		{% block titulo_seccion %}
 		{% endblock titulo_seccion %}
@@ -30,49 +32,13 @@
 		{% block body %}
 		{% endblock body %}
 
-		<footer>
-			{% block footer %}
-			{% endblock footer %}
+		<footer class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <ul class="nav navbar-nav navbar-right">
+					<li> <a href="#"> Ayuda </a> </li>
+					<li> <a href="#"> Contacto </a> </li>
+			    </ul>
+			</div>
 		</footer>
 	</body>
 </html>
-
-
-
-
-
-
-<!--<body>		
-	    <header class="navbar navbar-fixed-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <nav>
-                        <ul class="nav pull-right">
-                          {% block barra_superior %}{% endblock barra_superior%}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <br/>
-
-        <h1>{% block encabezado %}{% endblock encabezado%}</h1>
-     	<div id="wrap">
-			<div class="container">
-				{% block contenido %}{% endblock contenido%}
-			</div>
-			   {% block atras%}{% endblock atras%}
-
-		</div>
-
-	
-	</body>
-	<footer>
-		<div class="container">
-			
-		    	<li class="pull-right"><a name="about" href="/about/">About <i class="icon-list icon-black"></i></li></a>
-		      	<li class="pull-right"><a id="contact" name="contact" href="/contact-us/" >Contact <i class="icon-comment icon-black"></i></a></li>
-		    
-	  	</div>	
-	</footer>
-</html> -->
