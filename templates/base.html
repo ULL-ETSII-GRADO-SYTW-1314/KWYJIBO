@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="/static/jquery/jquery-1.9.1.min.js">
-		<link rel="stylesheet" type="text/css" href="/static/jquery/jquery.slides.min.js">
-		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-	    {% block head_link %}
-	    {% endblock head_link %}
-	    
-	    <title>{% block title %}{% endblock title %}</title>
+<html lang = "es">
+	<head>
+		<!-- Cabecera aquí -->
+		<title>
+			{% block titulo %}
+			{% endblock titulo %}
+		</title>
 	</head>
 
 	<body>
-		
+			{% block cuerpo %}
+			{% endblock cuerpo %}
+
+			{% block body %}
+			{% endblock body %}
+	</body>
+
+	<footer>
+			{% block footer %}
+			{% endblock footer %}
+	</footer>
+</html>
+
+
+
+
+
+
+<!--	<body>		
 	    <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
@@ -48,4 +61,4 @@
 		    
 	  	</div>	
 	</footer>
-</html>
+</html> -->
