@@ -13,21 +13,22 @@
 	</head>
 
 	<body>
-		<div class = "navbar navbar-inverse">
-			<div class = "navbar-inner">
-				<ul class = "nav">
-					{% block header %}
-					{% endblock header %}
-				</ul>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<a class="navbar-brand" href="#"> KWYJIBO </a>
+
+			    <ul class="nav navbar-nav navbar-right">
+			    	{% block header %}
+			    	{% endblock header %}
+			    </ul>
 			</div>
-		</div>
+		</nav>
 
-			{% block titulo_seccion %}
-			{% endblock titulo_seccion %}
+		{% block titulo_seccion %}
+		{% endblock titulo_seccion %}
 
-			{% block body %}
-			{% endblock body %}
-		</body>
+		{% block body %}
+		{% endblock body %}
 
 		<footer>
 			{% block footer %}
