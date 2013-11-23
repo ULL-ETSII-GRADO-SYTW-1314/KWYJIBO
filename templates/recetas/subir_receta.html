@@ -1,6 +1,7 @@
 {% extends "base.html" %}
     {% block title %}Subir Receta{% endblock %}
     {% block head_link %}
+
     {% endblock %} 
 
     {% block encabezado %} <h1> SUBE TU RECETA! </h1> {% endblock %}
@@ -18,11 +19,10 @@
 
 
         <div id="form_subir_receta" class="span6">
-            <form name="form" action="/subir_receta/" method="POST" class="form-signin">
+            <form name="form" action="/subir_receta/" method="POST" class="form-signin" enctype="multipart/form-data">
                 {% csrf_token %} 
                 {{ form.as_p }}
                 <input id="boton" type="submit" class="btn btn-inverse" value="Enviar" />
             </form>   
         </div>
-        
     {% endblock %}

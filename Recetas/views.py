@@ -10,9 +10,7 @@ from django.core.exceptions import ObjectDoesNotExist
 def subir_receta(request):
 	if request.method == 'POST':
 		form = Form_Receta(request.POST, request.FILES)
-		print 'guapooooooo'
 		if form.is_valid():
-			print 'feoooo'
 
 			#Array de Errores.
 			errores = []
@@ -23,10 +21,6 @@ def subir_receta(request):
 
 			#Auxiliar que busca si el titulo existe en la BBDD
 			aux = Receta.objects.filter(titulo=form.cleaned_data['titulo'])
-
-			#CHIVATO
-			print aux
-			print form.cleaned_data['titulo']
 
 			if (aux != form.cleaned_data['titulo']):
 				if(Receta.checkCharField(form.cleaned_data['titulo']) is not None):
@@ -41,10 +35,6 @@ def subir_receta(request):
 
 			#Auxiliar que busca si el titulo existe en la BBDD
 			aux = Receta.objects.filter(autor=form.cleaned_data['autor'])
-
-			#CHIVATO
-			print aux
-			print form.cleaned_data['autor']
 
 			if (aux != form.cleaned_data['autor']):
 				if(Receta.checkCharField(form.cleaned_data['autor']) is not None):
@@ -88,10 +78,7 @@ def subir_receta(request):
 			else:
 				errores.append('El campo "elaboracion" contiene caracteres no validos. ')
 
-			#SECCION DE LA IMAGEN DE LA RECETA.
-			#Nueva_Receta.imagen = form.cleaned_data['image']
-
-
+			Nueva_Receta.imagen = form.cleaned_data['imagen']
 
 			#Comprobacion de errores y/o guardado de la receta en la BBDD.
 			if (len(errores) != 0):
@@ -100,17 +87,7 @@ def subir_receta(request):
 				Nueva_Receta.save()
 				return HttpResponseRedirect('/admin/')
 		#else:
-		#	return HttpResponseRedirect('/admin/')
+			#return HttpResponseRedirect('www.google.es')
 	else:
 		form = Form_Receta()
 		return render_to_response('recetas/subir_receta.html', {'form':form}, context_instance=RequestContext(request))
-
-def upload_pic(request):
-    if request.method == 'POST':
-        form = Form_Receta(request.POST, request.FILES)
-        if form.is_valid():
-            m = Receta.objects.get(pk=course_id)
-            m.imagen = form.cleaned_data['image']
-            m.save()
-            return HttpResponse('image upload success')
-    return HttpResponseForbidden('allowed only via POST')

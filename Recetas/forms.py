@@ -20,7 +20,7 @@ class Form_Receta(forms.Form):
 
 	titulo = forms.CharField(max_length=50, label='Titulo')
 	#Para usar ImageField necesitamos "Imaging Library" --> sudo apt-get install python-imaging
-	#imagen = forms.ImageField(label='Imagen')
+	imagen = forms.ImageField(label='Imagen')
 	autor = forms.CharField(max_length=50, label='Autor')
 	grupo = MultipleChoiceField(required=False, widget=SelectMultiple(), choices=GRUPOS, label ='Grupo')
 	dificultad = MultipleChoiceField(required=False, widget=SelectMultiple(), choices=DIFICULTADES, label='Dificultad')
@@ -28,3 +28,4 @@ class Form_Receta(forms.Form):
 	personas = forms.IntegerField(max_value=50, label='Personas')
 	ingredientes = forms.CharField(max_length=50, label='Ingredientes')
 	elaboracion = forms.CharField(max_length=50, label='Elaboracion')
+	hora_subida = models.DateTimeField(blank=True)
