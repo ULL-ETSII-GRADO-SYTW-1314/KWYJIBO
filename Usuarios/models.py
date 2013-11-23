@@ -1,5 +1,7 @@
 from django.db import models
-
+import re
+import datetime
+import time
 # Create your models here.
 
 class Usuario(models.Model):
@@ -18,7 +20,7 @@ class Usuario(models.Model):
 	def checkUsuario(self, text):
 		valid = text
 		if ((len(valid) > 1) and (len(valid) < 51)): 
-			if re.match(r'([_a-zA-Z0-9]+)$', valid):
+			if re.match(r'([ _a-zA-Z0-9]+)$', valid):
 				return valid
 			else:
 				return None

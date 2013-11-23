@@ -9,7 +9,7 @@ class Form_Usuario(forms.Form):
 	apellidos = forms.CharField(max_length=50, label='Apellidos')
 	email = forms.EmailField(label='Email')
 	remail = forms.EmailField(label='Repita Email')
-	password = forms.CharField(label='Contraseña')
-	repassword = forms.CharField(label='Repita Contraseña')
+	password = forms.CharField(widget = forms.PasswordInput, label='Contrasenia')
+	repassword = forms.CharField(widget = forms.PasswordInput, label='Repita Contrasenia')
 	fecha_nacimiento = forms.CharField(max_length=50, label='Fecha de Nacimiento')
-	
+
