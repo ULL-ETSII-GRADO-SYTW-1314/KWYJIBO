@@ -2,7 +2,10 @@
 
 <html lang = "es">
 	<head>
-		<!-- Cabecera aquí -->
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.css">
+		<link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
 		<title>
 			{% block titulo %}
 			{% endblock titulo %}
@@ -10,17 +13,27 @@
 	</head>
 
 	<body>
-			{% block cuerpo %}
-			{% endblock cuerpo %}
+		<div class = "navbar navbar-inverse">
+			<div class = "navbar-inner">
+				<ul class = "nav">
+					{% block header %}
+					{% endblock header %}
+				</ul>
+			</div>
+		</div>
+
+			{% block titulo_seccion %}
+			{% endblock titulo_seccion %}
 
 			{% block body %}
 			{% endblock body %}
-	</body>
+		</body>
 
-	<footer>
+		<footer>
 			{% block footer %}
 			{% endblock footer %}
-	</footer>
+		</footer>
+	</body>
 </html>
 
 
@@ -28,7 +41,7 @@
 
 
 
-<!--	<body>		
+<!--<body>		
 	    <header class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
