@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^$', TemplateView.as_view(template_name="recetas/index.html")), 
+	url(r'^$', TemplateView.as_view(template_name="kwyjibo/index.html")), 
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^subir_receta/', 'Recetas.views.subir_receta'),
 	url(r'^subir_receta/', TemplateView.as_view(template_name="recetas/subir_receta.html")),

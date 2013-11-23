@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-    {% block title %}Registrate{% endblock %}
-    {% block head_link %}
+    {% block titulo %}Registrate{% endblock %}
 
-    {% endblock %} 
+    {% block titulo_seccion %} <h1> REGISTRATE! </h1> {% endblock %}
 
-    {% block encabezado %} <h1> REGISTRATE! </h1> {% endblock %}
-
-    {% block contenido %}
-
+    {% block body %}
+<div class="container">
         
         {% for e in errores %}
         <div class="alert alert-error">
@@ -24,5 +21,6 @@
                 {{ form.as_p }}
                 <input id="boton" type="submit" class="btn btn-inverse" value="Enviar" />
             </form>   
+        </div>
         </div>
     {% endblock %}
