@@ -22,7 +22,7 @@ def subir_receta(request):
 			#Auxiliar que busca si el titulo existe en la BBDD
 			aux = Receta.objects.filter(titulo=form.cleaned_data['titulo'])
 
-			if (aux != form.cleaned_data['titulo']):
+			if ( len(aux) == 0 ):
 				if(Receta.checkCharField(form.cleaned_data['titulo']) is not None):
 					titulo = Receta.checkCharField(form.cleaned_data['titulo'])
 					Nueva_Receta.titulo = titulo
