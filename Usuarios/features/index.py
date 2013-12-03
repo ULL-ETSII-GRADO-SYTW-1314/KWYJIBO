@@ -24,6 +24,7 @@ def access_url(step, url):
 #	header = world.dom.cssselect("h1")[0]
 #	assert header.text == text
 
+
 #Scenario: Atributos de un Usuario
 #Crear un usuario
 @step(r'crear un usuario')
@@ -57,5 +58,13 @@ def tamano_pass(step):
 #Debe tener fecha de fecha_nacimiento
 @step(r'Debe tener una fecha de nacimiento')
 def fecha_nacimiento(step):
-	assert worl.user.fecha_nacimiento is not None
-	
+	assert world.user.fecha_nacimiento is not None
+
+
+#Scenario Password de un usuario
+#Debe tener un password 1234A
+@step(r'Debe tener un password(.*)')
+def tener_un_password(step, password):
+	world.password_valido = password
+
+

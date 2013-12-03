@@ -13,3 +13,9 @@ Feature: Validacion modelo de usuario
 		Debe tener un password
 		Tamano del password mayor a 3
 		Debe tener una fecha de nacimiento
+
+	Scenario: Password de un usuario
+		Debe tener un password 1234A
+		Debe tener un password valido
+		El password no puede estar vacio
+
