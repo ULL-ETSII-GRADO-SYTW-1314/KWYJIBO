@@ -21,7 +21,15 @@
                 {% endfor %}
             </div>
 
-            <form class="form-horizontal" role="form" action="/registrate" methon="POST">
+            <form action="" method="post">
+                <ul class="list-group">
+                    <li id="subject" class="list-group-item"> Nickname{{ form.nick }}</li>
+                    <li id="email" class="list-group-item">{{ form.nombre }}</li>
+                    <li id="message" class="list-group-item">{{ form.apellidos }}</li>
+                </ul>
+                <input type="submit" value="Submit">
+            </form>
+            <!--<form class="form-horizontal" role="form" action="/registrate" methon="POST">
                 {% csrf_token %} 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"> Nickname </label>
@@ -30,6 +38,6 @@
                         </div>
                 </div>
                 <input type="submit" class="btn btn-inverse" value="Enviar" />
-            </form>
+            </form> -->
         </center>
     {% endblock %}
