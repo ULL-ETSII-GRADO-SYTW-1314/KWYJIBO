@@ -12,3 +12,4 @@ Feature: Validacion modelo de usuario
 		Debe tener un email
 		Debe tener un password
 		Tamano del password mayor a 3
+		Debe tener una fecha de nacimiento

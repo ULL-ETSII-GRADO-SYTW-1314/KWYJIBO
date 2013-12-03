@@ -43,3 +43,19 @@ def nombre(step):
 @step(r'Debe tener un email')
 def email(step):
 	assert world.user.email is not None
+#Debe tener un password
+@step(r'Debe tener un password')
+def password(step):
+	assert world.user.password is not None
+#tamano del password mayor a 3
+@step(r'Tamano del password mayor a 3')
+def tamano_pass(step):
+	if len(world.user.password)> 3:
+		assert True
+	else:
+		assert False
+#Debe tener fecha de fecha_nacimiento
+@step(r'Debe tener una fecha de nacimiento')
+def fecha_nacimiento(step):
+	assert worl.user.fecha_nacimiento is not None
+	
