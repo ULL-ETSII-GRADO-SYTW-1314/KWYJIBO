@@ -7,6 +7,7 @@ Feature: Validacion modelo de usuario
 
 	Scenario: Atributos de un usuario
 		crear un usuario
+		Debe tener un nick
 		Debe tener un nombre
 		Debe tener un email
 		Debe tener un password

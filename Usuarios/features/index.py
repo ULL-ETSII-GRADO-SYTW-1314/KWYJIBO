@@ -31,3 +31,15 @@ def crear_usuario(step):
 	user = Usuario(nick = "pepito", nombre = "Pepe", apellidos = "Rodriguez", email = "peper@gmail.com", password = "12345", fecha_nacimiento = "02/05/1991")
 	world.user = user
 	assert (world.user, Usuario())
+#Debe tener un nick
+@step(r'Debe tener un nick')
+def nick(step):
+	assert world.user.nick is not None
+#Debe tener un nombre	
+@step(r'Debe tener un nombre')
+def nombre(step):
+	assert world.user.nombre is not None
+#Debe tener un email
+@step(r'Debe tener un email')
+def email(step):
+	assert world.user.email is not None
