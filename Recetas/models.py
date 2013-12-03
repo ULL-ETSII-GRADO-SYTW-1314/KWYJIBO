@@ -5,7 +5,6 @@ from os.path import join as pjoin
 import datetime
 import time
 import re
-# Create your models here.
 
 class Receta(models.Model):
 	GRUPOS = (
@@ -26,7 +25,7 @@ class Receta(models.Model):
 	titulo = models.CharField(max_length=50)
 	#Para usar ImageField necesitamos "Imaging Library" --> sudo apt-get install python-imaging
 	imagen = models.ImageField(upload_to = 'imagenes_receta/', default = 'imagenes_receta/None/no-img.jpg')
-	##PODEMOS HACER QUE SE RRELLENE AUTO
+	##PODEMOS HACER QUE SE RELLENE AUTO
 	autor = models.CharField(max_length=50)
 	grupo = models.CharField(max_length=3, choices=GRUPOS)
 	dificultad = models.CharField(max_length=3, choices=DIFICULTADES)

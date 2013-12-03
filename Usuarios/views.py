@@ -89,3 +89,45 @@ def Registro_Usuario(request):
 	else:
 		form = Form_Usuario()
 		return render_to_response('usuarios/registrate.html', {'form':form}, context_instance=RequestContext(request))
+
+def LogIn(request):
+	if request.method == 'POST':
+		form = AuthenticationForm(request.POST)
+		errors =[]
+
+		if form.is_valid:
+			nick = request.POST['nick']
+			password = request.POST['password']
+			listado = Usuario.objects.get
+
+			try:
+				a = listado(nick=nick)
+			except: 
+				errors.append('El usuario no existe')
+				return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+
+			else:
+				print a.password
+				if a.password == request.POST['password']:
+					request.session['usuario'] = a.usuario
+					request.session['id'] = a.id
+					a.save()
+
+					return HttpResponseRedirect('/microposts/')
+					print 'Todo OK'
+
+				else:
+					errors.append('El usuario no coincide')
+					return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+	else:
+		form = AuthenticationForm()
+		return render_to_response('twitter/index.html', {'form': form}, context_instance=RequestContext(request))
+
+def LogOut(request):
+	
+	try:
+		del request.session['usuario']
+		del request.session['id']
+	except:
+		pass
+	return render_to_response('twitter/logout.html')
