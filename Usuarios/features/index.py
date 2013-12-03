@@ -23,3 +23,11 @@ def access_url(step, url):
 #def access_header(step, text):
 #	header = world.dom.cssselect("h1")[0]
 #	assert header.text == text
+
+#Scenario: Atributos de un Usuario
+#Crear un usuario
+@step(r'crear un usuario')
+def crear_usuario(step):
+	user = Usuario(nick = "pepito", nombre = "Pepe", apellidos = "Rodriguez", email = "peper@gmail.com", password = "12345", fecha_nacimiento = "02/05/1991")
+	world.user = user
+	assert (world.user, Usuario())
