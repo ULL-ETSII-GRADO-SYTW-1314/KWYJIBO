@@ -1,7 +1,7 @@
 from lettuce import *
 from lxml import html
 from django.test.client import Client
-#from nose.tools import assert_equals
+from nose.tools import assert_equals
 from Usuarios.models import *
 from Recetas.models import *
 
@@ -75,7 +75,27 @@ def password_no_vacio(step):
 	else:
 		assert False
 
-		
+#Scenario Password Iguales
+#Existe un segundo password
+@step(r'Existe un segundo password(.*)')
+def segundo_password(step,password):
+	world.second_password = password
+#El primer password no es vacio
+@step(r'El primer password no es vacio')
+def primer_no_vacio(step):
+	if len(world.user.password)> 1:
+		assert True
+	else:
+		assert False
+#El segundo password no es vacio
+@step(r'El segundo password no es vacio')
+def segundo_no_vacio(step):
+	if len(world.user.password)> 1:
+		assert True
+	else:
+		assert False
 
-
-
+#El segundo password es valido
+@step(r'El segundo password es valido')
+def valido_segundo_password(step):
+	 assert_equals(world.second_password, Usuario.checkPassword(world.second_password))

@@ -19,3 +19,11 @@ Feature: Validacion modelo de usuario
 		Debe tener un password valido
 		El password no puede estar vacio
 
+	Scenario: Los password son iguales
+		Existe un segundo password 1234A
+		El primer password no es vacio
+		El segundo password no es vacio
+		El segundo password es valido
+
+
+
