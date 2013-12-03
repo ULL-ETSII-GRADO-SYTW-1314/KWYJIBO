@@ -112,7 +112,7 @@ def LogIn(request):
 					request.session['id'] = a.id
 					a.save()
 
-					return HttpResponseRedirect('/admin/')
+					return HttpResponseRedirect('/')
 					print 'Todo OK'
 
 				else:
@@ -126,8 +126,8 @@ def LogIn(request):
 def LogOut(request):
 	
 	try:
-		del request.session['nick']
+		del request.session['username']
 		del request.session['id']
 	except:
 		pass
-	return render_to_response('pagina')
+	return HttpResponseRedirect('/')

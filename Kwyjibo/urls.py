@@ -13,4 +13,5 @@ urlpatterns = patterns('',
 	url(r'^login/', 'Usuarios.views.LogIn'),
 	url(r'^about/', TemplateView.as_view(template_name="kwyjibo/about.html")),
 	url(r'^contact/', TemplateView.as_view(template_name="kwyjibo/contact.html")),
+	url(r'^logout/', 'Usuarios.views.LogOut'),
 )
