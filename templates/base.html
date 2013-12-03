@@ -3,10 +3,8 @@
 <html lang = "es">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.css">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/kwyjibo.css">
 		<title>
 			{% block titulo %}
 			{% endblock titulo %}
@@ -29,14 +27,12 @@
 
 		{% block body %}
 		{% endblock body %}
-
-		<footer class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			    <ul class="nav navbar-nav navbar-right">
-					<li> <a href="#"> Ayuda </a> </li>
-					<li> <a href="#"> Contacto </a> </li>
-			    </ul>
-			</div>
-		</footer>
 	</body>
+
+	<div id="micasa">
+		<p>
+			<a href="#"> Ayuda </a>
+			<a href="#"> Contacto </a>
+		</p>
+	</div>
 </html>

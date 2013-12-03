@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 	url(r'^subir_receta/', TemplateView.as_view(template_name="recetas/subir_receta.html")),
 	url(r'^registrate/', 'Usuarios.views.Registro_Usuario'),
 	url(r'^registrate/', TemplateView.as_view(template_name="usuarios/registrate.html")),
+	url(r'^login/', 'Usuarios.views.LogIn'),
 )

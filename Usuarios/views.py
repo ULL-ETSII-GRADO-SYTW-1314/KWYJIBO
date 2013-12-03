@@ -93,7 +93,7 @@ def Registro_Usuario(request):
 def LogIn(request):
 	if request.method == 'POST':
 		form = AuthenticationForm(request.POST)
-		errors =[]
+		errores =[]
 
 		if form.is_valid:
 			nick = request.POST['nick']
@@ -104,30 +104,30 @@ def LogIn(request):
 				a = listado(nick=nick)
 			except: 
 				errors.append('El usuario no existe')
-				return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+				return render_to_response('recetas/subir_receta.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 
 			else:
-				print a.password
 				if a.password == request.POST['password']:
-					request.session['usuario'] = a.usuario
+					request.session['nick'] = a.nick
 					request.session['id'] = a.id
 					a.save()
 
-					return HttpResponseRedirect('/microposts/')
+					return HttpResponseRedirect('/admin/')
 					print 'Todo OK'
 
 				else:
 					errors.append('El usuario no coincide')
-					return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+					return render_to_response('recetas/subir_receta.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 	else:
 		form = AuthenticationForm()
-		return render_to_response('twitter/index.html', {'form': form}, context_instance=RequestContext(request))
+		print "pepe";
+		return render_to_response('recetas/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
 	
 	try:
-		del request.session['usuario']
+		del request.session['nick']
 		del request.session['id']
 	except:
 		pass
-	return render_to_response('twitter/logout.html')
+	return render_to_response('pagina')

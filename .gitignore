@@ -1,4 +1,8 @@
 Explication.txt
 Kwyjibo/media/*
 BBDD_Kwyjibo
+<<<<<<< HEAD
 *.pyc
+=======
+*.pyc
+>>>>>>> 719a6ee2fc1f215a77fcd2b063d616acee4bbe1f
