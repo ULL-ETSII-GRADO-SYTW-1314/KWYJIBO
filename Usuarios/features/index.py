@@ -67,4 +67,15 @@ def fecha_nacimiento(step):
 def tener_un_password(step, password):
 	world.password_valido = password
 
+#El password no puede estar vacio
+@step(r'El password no puede estar vacio')
+def password_no_vacio(step):
+	if len(world.user.password)> 1:
+		assert True
+	else:
+		assert False
+
+		
+
+
 
