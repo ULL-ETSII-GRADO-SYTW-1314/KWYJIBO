@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+    {% block titulo %}
+        KWYJIBO - Log in
+    {% endblock %}
+
+    {% block header %}
+        <!-- Vacío -->
+    {% endblock header %}
+
+    {% block titulo_seccion %}
+        <IMG SRC="/static/images/log_in.png">
+    {% endblock titulo_seccion %}
+
+    {% block body %}
+        <center>
+            <div class="container">
+                {% for e in errores %}
+                    <ul>
+                        <li> {{ e }} </li>
+                    </ul>
+                {% endfor %}
+            </div>
+
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="jumbotron">
+                            <form action="/login/" method="POST">
+                                {% csrf_token %} 
+                                <center><h4> <label> Nick </label> </h4>
+                                <h4> {{ form.username }} </h4>
+                                <h4> <label> Password </label> </h4>
+                                <h4> {{ form.password }} </h4>
+                            </form>
+                            <p>  </p>
+                            <input type="submit" class="btn btn-primary btn-large" value="Entrar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    {% endblock %}

@@ -8,7 +8,7 @@
     {% endblock header %}
 
     {% block titulo_seccion %}
-        SIGN IN
+        <IMG SRC="/static/images/sign_in.png">
     {% endblock titulo_seccion %}
 
     {% block body %}
@@ -21,23 +21,30 @@
                 {% endfor %}
             </div>
 
-            <form action="" method="post">
-                <ul class="list-group">
-                    <li id="subject" class="list-group-item"> Nickname{{ form.nick }}</li>
-                    <li id="email" class="list-group-item">{{ form.nombre }}</li>
-                    <li id="message" class="list-group-item">{{ form.apellidos }}</li>
-                </ul>
-                <input type="submit" value="Submit">
-            </form>
-            <!--<form class="form-horizontal" role="form" action="/registrate" methon="POST">
-                {% csrf_token %} 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"> Nickname </label>
-                        <div class="col-sm-2">
-                            {{ form.nick }}
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="jumbotron">
+                            <form action="" method="POST">
+                                {% csrf_token %} 
+                                <center><h4> <label> Nick </label> </h4>
+                                <h4> {{ form.nick }} </h4>
+                                <h4> <label> Nombre </label> </h4>
+                                <h4> {{ form.nombre }} </h4>
+                                <h4> <label> Apellidos </label> </h4>
+                                <h4> {{ form.apellidos }} </h4>
+                                <h4> <label> Email </label> </h4>
+                                <h4> {{ form.email }} {{ form.remail }} </h4>
+                                <h4> <label> Password </label> </h4>
+                                <h4> {{ form.password }} {{ form.repassword }} </h4>
+                                <h4> <label> Date of birth </label> </h4>
+                                <h4> {{ form.fecha_nacimiento }} </h4>
+                            </form>
+                            <p>  </p>
+                            <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
                         </div>
+                    </div>
                 </div>
-                <input type="submit" class="btn btn-inverse" value="Enviar" />
-            </form> -->
+            </div>
         </center>
     {% endblock %}

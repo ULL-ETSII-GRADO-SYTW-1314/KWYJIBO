@@ -137,7 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'Recetas',
     'Usuarios',
-    'lettuce.django',
+    #'lettuce.django',
 )
 
 # A sample logging configuration. The only tangible logging

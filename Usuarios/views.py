@@ -81,7 +81,7 @@ def Registro_Usuario(request):
 			else:
 				print "ENTER"
 				Nuevo_Usuario.save()
-				return HttpResponseRedirect('/admin/')
+				return HttpResponseRedirect('/')
 			
 
 		#else:
@@ -96,19 +96,19 @@ def LogIn(request):
 		errores =[]
 
 		if form.is_valid:
-			nick = request.POST['nick']
+			nick = request.POST['username']
 			password = request.POST['password']
 			listado = Usuario.objects.get
 
 			try:
 				a = listado(nick=nick)
 			except: 
-				errors.append('El usuario no existe')
-				return render_to_response('recetas/subir_receta.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
+				errores.append('El usuario no existe')
+				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 
 			else:
 				if a.password == request.POST['password']:
-					request.session['nick'] = a.nick
+					request.session['username'] = a.nick
 					request.session['id'] = a.id
 					a.save()
 
@@ -116,12 +116,12 @@ def LogIn(request):
 					print 'Todo OK'
 
 				else:
-					errors.append('El usuario no coincide')
-					return render_to_response('recetas/subir_receta.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
+					errores.append('El usuario no coincide')
+					return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 	else:
 		form = AuthenticationForm()
 		print "pepe";
-		return render_to_response('recetas/login.html', {'form':form}, context_instance=RequestContext(request))
+		return render_to_response('usuarios/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
 	
