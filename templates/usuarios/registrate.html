@@ -15,27 +15,21 @@
         <center>
             <div class="container">
                 {% for e in errores %}
-                
+                    <ul>
+                        <li> {{ e }} </li>
+                    </ul>
                 {% endfor %}
             </div>
-        </center>
-<div class="container">
-        
-        {% for e in errores %}
-        <div class="alert alert-error">
-            <ul>
-                <li>{{ e }}</li>
-            </ul>
-        </div>
-        {% endfor %}
 
-
-        <div id="form_registrate" class="span6">
-            <form name="form" action="/registrate/" method="POST" class="form-signin">
+            <form class="form-horizontal" role="form" action="/registrate" methon="POST">
                 {% csrf_token %} 
-                {{ form.as_p }}
-                <input id="boton" type="submit" class="btn btn-inverse" value="Enviar" />
-            </form>   
-        </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"> Nickname </label>
+                        <div class="col-sm-2">
+                            {{ form.nick }}
+                        </div>
+                </div>
+                <input type="submit" class="btn btn-inverse" value="Enviar" />
+            </form>
+        </center>
     {% endblock %}
