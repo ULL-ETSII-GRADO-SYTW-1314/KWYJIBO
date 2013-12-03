@@ -2,6 +2,13 @@
 import os
 import django
 
+LETTUCE_SERVER_PORT = 8000
+
+LETTUCE_APPS = (
+    'Usuarios',
+    'Recetas',
+    )
+
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -130,6 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'Recetas',
     'Usuarios',
+    'lettuce.django',
 )
 
 # A sample logging configuration. The only tangible logging
