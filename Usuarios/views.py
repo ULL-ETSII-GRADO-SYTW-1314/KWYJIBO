@@ -81,7 +81,7 @@ def Registro_Usuario(request):
 			else:
 				print "ENTER"
 				Nuevo_Usuario.save()
-				return HttpResponseRedirect('/admin/')
+				return HttpResponseRedirect('/')
 			
 
 		#else:
