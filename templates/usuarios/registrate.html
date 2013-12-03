@@ -1,9 +1,24 @@
 {% extends "base.html" %}
-    {% block titulo %}Registrate{% endblock %}
+    {% block titulo %}
+        KWYJIBO - Sign in
+    {% endblock %}
 
-    {% block titulo_seccion %} <h1> REGISTRATE! </h1> {% endblock %}
+    {% block header %}
+        <!-- Vacío -->
+    {% endblock header %}
+
+    {% block titulo_seccion %}
+        SIGN IN
+    {% endblock titulo_seccion %}
 
     {% block body %}
+        <center>
+            <div class="container">
+                {% for e in errores %}
+                
+                {% endfor %}
+            </div>
+        </center>
 <div class="container">
         
         {% for e in errores %}
