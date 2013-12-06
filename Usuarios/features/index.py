@@ -101,12 +101,12 @@ def primer_no_vacio(step,password):
 def have_a_usuario(step, usuario):
     world.valid_usuario = usuario
 
-
+#When I check if usuario is valid
 @step(r'I check if usuario is valid')
 def check_if_usuario_is_valid(step):
     world.valid_usuario = Usuario.checkUsuario(world.valid_usuario)
     assert world.valid_usuario is not None
-  
+#When I check if usuario is not valid  
 @step(r'I check if usuario is not valid')
 def check_if_usuario_is_valid(step):
     world.valid_usuario = Usuario.checkUsuario(world.valid_usuario)
