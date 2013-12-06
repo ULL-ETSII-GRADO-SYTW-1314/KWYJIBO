@@ -123,14 +123,7 @@ def LogIn(request):
 		return render_to_response('usuarios/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
-	
-<<<<<<< HEAD
-	try:
-		del request.session
-	except:
-		pass
-	return HttpResponseRedirect('/')
-=======
+
 	sesion = False
 	form = Form_Auth_Usuario()
 
@@ -163,4 +156,3 @@ def Session(request):
 	except:
 		print sesion
 		return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
->>>>>>> fbe24721fcd61daf7775c40ff97d605eb902e22f
