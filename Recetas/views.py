@@ -94,11 +94,21 @@ def subir_receta(request):
 
 def mostrar_receta(request):
 
-	if request.method == 'POST':
-		form = Form_Receta(request.POST, request.FILES)
-		if form.is_valid():
+	#Obtener el id de la receta.
+	path = request.path_info.__str__()
+	len_path = len("/recetas/")
+	n_recetas = len_path + Receta.objects.count()
+	id_receta = path[len_path:n_recetas]
+	id_receta = id_receta
 
-	else:
+
+	if ( len(id_receta) > 0 ):
 		Listado_Recetas = Receta.objects.all()
-		Listado_Recetas.order_by('titulo')
-		return render_to_response('recetas/recetas.html', {'Listado_Recetas':lista}, context_instance=RequestContext(request))
+		receta = Listado_Recetas[int(id_receta)-1]
+		Listado_Recetas = Listado_Recetas.order_by('titulo')
+		return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas, 'receta':receta}, context_instance=RequestContext(request))
+	else:
+		print "pepeeee"
+		Listado_Recetas = Receta.objects.all()
+		Listado_Recetas = Listado_Recetas.order_by('titulo')
+		return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas}, context_instance=RequestContext(request))

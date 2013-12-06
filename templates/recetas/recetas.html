@@ -26,12 +26,14 @@
                     <div class="col-md-3 column">
                         {% for l in lista %}
                             <ul>
-                                <li> {{ l }} </li>
+                                <a href="/recetas/{{l.id}}"> {{ l }} </a>
                             </ul>
                         {% endfor %}
                     </div>
                     <div class="col-md-9 column">
-                        Aqui tiene que aparecer la receta
+                        <h4> {{ receta.titulo }} </h4>
+                        <h4> {{ receta.imagen }} </h4>
+                        <h4> {{ receta.personas }} </h4>
                     </div>
                 </div>
             </div>
