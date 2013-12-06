@@ -20,8 +20,6 @@ Feature: Validacion modelo de usuario
 		El password no puede estar vacio A1234
 		Existe un segundo password A1234
 		El segundo password no es vacio A1234
-		Los password son iguales A1234 A1234
-		
 
 
 

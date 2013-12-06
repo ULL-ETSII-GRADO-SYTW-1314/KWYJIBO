@@ -95,12 +95,3 @@ def primer_no_vacio(step,password):
 		assert True
 	else:
 		assert False
-
-@step(r'Los password son iguales "(.*)" "(.*)"')
-def dosiguales(step,password1,password2):
-	world.password_valido = password1
-	world.second_password = password2
-	if (world.password_valido == world.second_password):
-		assert True
-	else:
-		assert False
