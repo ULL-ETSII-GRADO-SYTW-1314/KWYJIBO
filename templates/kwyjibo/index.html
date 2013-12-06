@@ -4,7 +4,11 @@
 	{% endblock titulo %}
 
 	{% block header %}
-		<li> <a href="/login/"> Log in </a> </li>
+	{% if sesion %}
+		<li> <a href="/logout"> Log Out </a> </li>	
+	{% else %}
+		<li> <a href="/login/"> Log In </a> </li>
+	{% endif %}
 	{% endblock header %}
 
 	{% block body %}
