@@ -21,6 +21,25 @@ Feature: Validacion modelo de usuario
 		Existe un segundo password A1234
 		El segundo password no es vacio A1234
 
+	Scenario: These users with length shorter than 50 should pass
+			Given I have a usuario Macarena
+			When I check if usuario is valid
+		#Examples:
+		#|usuario |
+		#|Jessica |
+		#|FernandO|
+		#|ANGELA91|
+		#|jess    |
+		#|fErni   |
 
+	Scenario: These users with length shorter than 50 should fail
+		Given I have a usuario Je$$ica
+		When I check if usuario is not valid
+	#Examples:
+	#|usuario       |
+	#|Je$$ica       |
+	#|@jess         |
+	#|Fer/ni        |
+	#|angie(lokilla)|
 
 

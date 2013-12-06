@@ -95,3 +95,19 @@ def primer_no_vacio(step,password):
 		assert True
 	else:
 		assert False
+
+
+@step(r'I have a usuario (.*)')
+def have_a_usuario(step, usuario):
+    world.valid_usuario = usuario
+
+
+@step(r'I check if usuario is valid')
+def check_if_usuario_is_valid(step):
+    world.valid_usuario = Usuario.checkUsuario(world.valid_usuario)
+    assert world.valid_usuario is not None
+  
+@step(r'I check if usuario is not valid')
+def check_if_usuario_is_valid(step):
+    world.valid_usuario = Usuario.checkUsuario(world.valid_usuario)
+    assert world.valid_usuario is None  
