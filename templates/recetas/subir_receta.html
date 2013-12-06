@@ -25,10 +25,12 @@
                 <div class="row clearfix">
                     <div class="col-md-12 column">
                         <div class="jumbotron">
-                            <form action="" method="POST">
+                            <form action="/subir_receta/" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %} 
                                 <center><h4> <label> Título </label> </h4>
                                 <h4> {{ form.titulo }} </h4>
+                                <h4> <label> Autor </label> </h4>
+                                <h4> {{ form.autor }} </h4>
                                 <h4> <label> Imagen </label> </h4>
                                 <h4> {{ form.imagen }} </h4>
                                 <h4> <label> Grupo </label> </h4>
@@ -42,10 +44,10 @@
                                 <h4> <label> Ingredientes </label> </h4>
                                 <h4> {{ form.ingredientes }} </h4>
                                 <h4> <label> Elaboración </label> </h4>
-                                <h4> {{ form.elaboracion }} </h4>
+                                <h4> {{ form.elaboracion }} </h4> 
+                                <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
                             </form>
                             <p>  </p>
-                            <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
                         </div>
                     </div>
                 </div>

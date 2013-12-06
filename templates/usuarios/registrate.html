@@ -25,7 +25,7 @@
                 <div class="row clearfix">
                     <div class="col-md-12 column">
                         <div class="jumbotron">
-                            <form action="" method="POST">
+                            <form action="/registrate/" method="POST">
                                 {% csrf_token %} 
                                 <center><h4> <label> Nick </label> </h4>
                                 <h4> {{ form.nick }} </h4>
@@ -39,9 +39,9 @@
                                 <h4> {{ form.password }} {{ form.repassword }} </h4>
                                 <h4> <label> Date of birth </label> </h4>
                                 <h4> {{ form.fecha_nacimiento }} </h4>
+                                <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
                             </form>
                             <p>  </p>
-                            <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
                         </div>
                     </div>
                 </div>
