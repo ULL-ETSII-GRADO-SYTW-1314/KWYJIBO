@@ -72,7 +72,7 @@ def Registro_Usuario(request):
 			if(Nuevo_Usuario.checkDate(fecha) is not None):
 				Nuevo_Usuario.fecha_nacimiento = fecha
 			else:
-				errors.append('Fecha erronea: Debe ser mayor de 14 anos')
+				errores.append('Fecha erronea: Debe ser mayor de 14 anos')
 
 			print "FIN"
 			#GUARDAMOS EN LA BBDD
@@ -126,8 +126,7 @@ def LogIn(request):
 def LogOut(request):
 	
 	try:
-		del request.session['username']
-		del request.session['id']
+		del request.session
 	except:
 		pass
 	return HttpResponseRedirect('/')
