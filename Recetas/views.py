@@ -91,3 +91,14 @@ def subir_receta(request):
 	else:
 		form = Form_Receta()
 		return render_to_response('recetas/subir_receta.html', {'form':form}, context_instance=RequestContext(request))
+
+def mostrar_receta(request):
+
+	if request.method == 'POST':
+		form = Form_Receta(request.POST, request.FILES)
+		if form.is_valid():
+
+	else:
+		Listado_Recetas = Receta.objects.all()
+		Listado_Recetas.order_by('titulo')
+		return render_to_response('recetas/recetas.html', {'Listado_Recetas':Listado_Recetas}, context_instance=RequestContext(request))

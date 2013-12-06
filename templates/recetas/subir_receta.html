@@ -1,13 +1,11 @@
 {% extends "base.html" %}
-    {% block title %}Subir Receta{% endblock %}
+    {% block titulo %}Subir Receta{% endblock %}
     {% block head_link %}
 
-    {% endblock %} 
+    {% endblock %}
 
-    {% block encabezado %} <h1> SUBE TU RECETA! </h1> {% endblock %}
-
-    {% block contenido %}
-
+    {% block body %}
+        <h1> SUBE TU RECETA! </h1>
         
         {% for e in errores %}
         <div class="alert alert-error">
