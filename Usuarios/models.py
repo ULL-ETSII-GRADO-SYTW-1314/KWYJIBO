@@ -59,7 +59,11 @@ class Usuario(models.Model):
 		valid = password
 		if len(password) >=3: 
 			if re.match(r'([a-zA-Z0-9]+)$', valid):
-				return valid 
+				return valid
+			else:
+				return None
+		else:
+			return None 
 
 	@classmethod
 	def checkDate(self, date):

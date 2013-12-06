@@ -15,15 +15,15 @@ Feature: Validacion modelo de usuario
 		Debe tener una fecha de nacimiento
 
 	Scenario: Password de un usuario
-		Debe tener un password 1234A
+		Debe tener un password A1234
 		Debe tener un password valido
 		El password no puede estar vacio
-
-	Scenario: Los password son iguales
-		Existe un segundo password 1234A
+		Existe un segundo password A1234
 		El primer password no es vacio
 		El segundo password no es vacio
+		Los password son iguales
 		El segundo password es valido
+
 
 
 
