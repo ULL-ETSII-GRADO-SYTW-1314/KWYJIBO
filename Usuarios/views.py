@@ -111,7 +111,7 @@ def LogIn(request):
 					request.session['id'] = a.id
 					a.save()
 
-					return HttpResponseRedirect('/admin/')
+					return HttpResponseRedirect('/')
 					print 'Todo OK'
 
 				else:
@@ -123,7 +123,7 @@ def LogIn(request):
 		return render_to_response('usuarios/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
-	
+
 	sesion = False
 	form = Form_Auth_Usuario()
 

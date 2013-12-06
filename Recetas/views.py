@@ -101,4 +101,4 @@ def mostrar_receta(request):
 	else:
 		Listado_Recetas = Receta.objects.all()
 		Listado_Recetas.order_by('titulo')
-		return render_to_response('recetas/recetas.html', {'Listado_Recetas':Listado_Recetas}, context_instance=RequestContext(request))
+		return render_to_response('recetas/recetas.html', {'Listado_Recetas':lista}, context_instance=RequestContext(request))

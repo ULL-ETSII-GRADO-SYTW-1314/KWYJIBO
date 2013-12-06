@@ -4,35 +4,53 @@
 	{% endblock titulo %}
 
 	{% block header %}
-	{% if sesion %}
-		<li> <a href="/logout"> Log Out </a> </li>	
-	{% else %}
-		<li> <a href="/login/"> Log In </a> </li>
-	{% endif %}
 	{% endblock header %}
 
 	{% block body %}
-		<center>
-			<div class="container">
-				<div class="row clearfix">
-					<div class="col-md-12 column">
-						<div class="jumbotron well">
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="row clearfix">
+						<div class="col-md-6 column">
 							<br>
-							<IMG SRC="/static/images/logo_web.png">
-							<p>
-								<a href="/login/" class="btn btn-default btn-large"> Log in </a> <small>or</small> <a href="/registrate/" class="btn btn-success btn-large"> Sign in </a>
-							</p>						
+							<div class="carousel slide" id="carousel-11099">
+								<ol class="carousel-indicators">
+									<li data-slide-to="0" data-target="#carousel-11099">
+									</li>
+									<li data-slide-to="1" data-target="#carousel-11099" class="active">
+									</li>
+									<li data-slide-to="2" data-target="#carousel-11099">
+									</li>
+								</ol>
+								<div class="carousel-inner">
+									<div class="item">
+										<img alt="" src="http://lorempixel.com/1600/500/sports/1" />
+									</div>
+									<div class="item active">
+										<img alt="" src="http://lorempixel.com/1600/500/sports/2" />
+									</div>
+									<div class="item">
+										<img alt="" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQU_5kyWxgao5utA8eE7J1cHCTeI-U01LE5qgBZSjcaqsRjZYqW" />
+									</div>
+								</div> <a class="left carousel-control" href="#carousel-11099" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-11099" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+							</div>
+							<br>
+							<center> <h2> Write your recipe! Share it! </h2> </center>
+						</div>
+						<div class="col-md-6 column">
+							<div class="jumbotron">
+								<center>
+									<IMG SRC="/static/images/logo_index.png">
+									<p>
+										<a href="/login/" class="btn btn-default btn-large"> Log in </a> 
+										<a href="/registrate/" class="btn btn-success btn-large"> Sign in </a> 
+										<a href="/recetas/" class="btn btn-warning btn-large"> View all recipes </a>
+									</p>
+								</center>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="row clearfix">
-					<div class="col-md-12 column">
-						<p> <strong>KWYJIBO</strong> es un proyecto para <strong>Sistemas y Tecnologías Web</strong> </p>
-						<p> Escuela Técnica Superior de Ingeniería Informática </p>
-						<p> Universidad de La Laguna </p>
-					</div>
-				</div>
 			</div>
-		</center>
+		</div>
 	{% endblock body %}

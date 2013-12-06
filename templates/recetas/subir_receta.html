@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
     {% block titulo %}Subir Receta{% endblock %}
     {% block head_link %}
 
@@ -23,4 +24,58 @@
                 <input id="boton" type="submit" class="btn btn-inverse" value="Enviar" />
             </form>   
         </div>
+=======
+    {% block titulo %}
+        KWYJIBO - Subir receta
+    {% endblock %}
+
+    {% block header %}
+    {% endblock header %}
+
+    {% block titulo_seccion %}
+        <IMG SRC="/static/images/subir_receta.png">
+    {% endblock titulo_seccion %}
+
+    {% block body %}
+        <center>
+            <div class="container">
+                {% for e in errores %}
+                    <ul>
+                        <li> {{ e }} </li>
+                    </ul>
+                {% endfor %}
+            </div>
+
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="jumbotron">
+                            <form action="/subir_receta/" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %} 
+                                <center><h4> <label> Título </label> </h4>
+                                <h4> {{ form.titulo }} </h4>
+                                <h4> <label> Autor </label> </h4>
+                                <h4> {{ form.autor }} </h4>
+                                <h4> <label> Imagen </label> </h4>
+                                <h4> {{ form.imagen }} </h4>
+                                <h4> <label> Grupo </label> </h4>
+                                <h4> {{ form.grupo }} </h4>
+                                <h4> <label> Dificultad </label> </h4>
+                                <h4> {{ form.dificultad }} </h4>
+                                <h4> <label> Tiempo </label> </h4>
+                                <h4> {{ form.tiempo }} </h4>
+                                <h4> <label> Personas </label> </h4>
+                                <h4> {{ form.personas }} </h4>
+                                <h4> <label> Ingredientes </label> </h4>
+                                <h4> {{ form.ingredientes }} </h4>
+                                <h4> <label> Elaboración </label> </h4>
+                                <h4> {{ form.elaboracion }} </h4> 
+                                <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
+                            </form>
+                            <p>  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+>>>>>>> fdfce2f6b1db9be525d2e2c4cc7cc39651d3832a
     {% endblock %}
