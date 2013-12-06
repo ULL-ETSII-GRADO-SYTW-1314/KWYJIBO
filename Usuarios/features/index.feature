@@ -17,12 +17,11 @@ Feature: Validacion modelo de usuario
 	Scenario: Password de un usuario
 		Debe tener un password A1234
 		Debe tener un password valido
-		El password no puede estar vacio
+		El password no puede estar vacio A1234
 		Existe un segundo password A1234
-		El primer password no es vacio
-		El segundo password no es vacio
-		Los password son iguales
-		El segundo password es valido
+		El segundo password no es vacio A1234
+		Los password son iguales A1234 A1234
+		
 
 
 

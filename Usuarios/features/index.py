@@ -76,7 +76,7 @@ def password_valid(step):
 @step(r'El password no puede estar vacio')
 def password_no_vacio(step):
 	user = Usuario()
-	if len(user.password)> 1:
+	if len(world.user.password)> 1:
 		assert True
 	else:
 		assert False
@@ -86,31 +86,21 @@ def password_no_vacio(step):
 @step(r'Existe un segundo password(.*)')
 def segundo_password(step,password):
 	world.second_password = password
-#El primer password no es vacio
-@step(r'El primer password no es vacio')
-def primer_no_vacio(step):
-	assert Usuario.checkPassword(world.password_valido) is not None
-
+	
 #El segundo password no es vacio
-@step(r'El segundo password no es vacio')
-def segundo_no_vacio(step):
-	if len(world.second_password)> 1:
+@step(r'El segundo password no es vacio(.*)')
+def primer_no_vacio(step,password):
+	world.second_password = password
+	if len(world.second_password)>1:
 		assert True
 	else:
 		assert False
 
-@step(r'Los password son iguales')
-def dosiguales(step):
+@step(r'Los password son iguales "(.*)" "(.*)"')
+def dosiguales(step,password1,password2):
+	world.password_valido = password1
+	world.second_password = password2
 	if (world.password_valido == world.second_password):
 		assert True
 	else:
 		assert False
-
-#El segundo password es valido
-#@step(r'El segundo password es valido')
-#def valido_segundo_password(step):
-#	user = Usuario()
-#	if (user.checkPassword(world.second_password) == world.second_password):
-#		assert True
-#	else:
-#		assert False
