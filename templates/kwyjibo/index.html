@@ -4,6 +4,7 @@
 	{% endblock titulo %}
 
 	{% block header %}
+<<<<<<< HEAD
 		{% if hol %}
 			print reasddsadsadsa
 			<li> <a href="/logout/"> Log out </a> </li>
@@ -11,6 +12,13 @@
 			print request.session['nick']
 			<li> <a href="/login/"> Log in </a> </li>
 		{% endif %}
+=======
+	{% if sesion %}
+		<li> <a href="/logout"> Log Out </a> </li>	
+	{% else %}
+		<li> <a href="/login/"> Log In </a> </li>
+	{% endif %}
+>>>>>>> fbe24721fcd61daf7775c40ff97d605eb902e22f
 	{% endblock header %}
 
 	{% block body %}

@@ -13,3 +13,14 @@ class Form_Usuario(forms.Form):
 	repassword = forms.CharField(widget = forms.PasswordInput, label='Repita Contrasenia')
 	fecha_nacimiento = forms.CharField(max_length=50, label='Fecha de Nacimiento')
 
+class Form_Auth_Usuario(forms.Form):
+	nick = forms.CharField(max_length=50, label='Nick de Usuario')
+	password = forms.CharField(widget = forms.PasswordInput, label='Contrasenia')
+
+	@classmethod
+	def logueado(self, nick):
+		valid = nick
+		if ( len(valid) > 0 ):
+			return valid
+		else:
+			return None
