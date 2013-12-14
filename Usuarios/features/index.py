@@ -3,6 +3,7 @@ from lxml import html
 from django.test.client import Client
 from nose.tools import assert_equals
 from Usuarios.models import *
+from Usuarios.views import *
 from Recetas.models import *
 
 
@@ -17,12 +18,6 @@ def set_browser():
 def access_url(step, url):
     response = world.browser.get(url)
     world.dom = html.fromstring(response.content)
-
-#ver el encabezado Kwyjibo
-#@step(r'ver el encabezado "(.*)"')
-#def access_header(step, text):
-#	header = world.dom.cssselect("h1")[0]
-#	assert header.text == text
 
 
 #Scenario: Atributos de un Usuario
@@ -141,9 +136,11 @@ def no_palabrotas(step,usuario):
 	else:
 		assert False
 ##############################################################################
-
-
-
+#Scenario Un usuario puede loguearse
+@step(r'un usuario se loguea')
+def usuario_logueado(step):
+	world.browser.response = world.browser.post('/login',
+		{'nick': world.user.nick, 'password': world.user.password})
 
 
 

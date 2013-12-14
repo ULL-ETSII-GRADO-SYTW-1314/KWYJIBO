@@ -2,7 +2,6 @@ Feature: Validacion modelo de usuario
 
 	Scenario: Probar el acceso al HTML raiz
 		acceder a la url "/"
-		ver el encabezado "Kwyjibo"
 
 
 	Scenario: Atributos de un usuario
@@ -50,6 +49,9 @@ Feature: Validacion modelo de usuario
 		Compruebo que el nombre de usuario es valido
 		Compruebo que el usuario no tiene palabrotas pepe
 		
+
+	Scenario: Un usuario puede logearse
+		Un usuario se loguea
 
 
 	
