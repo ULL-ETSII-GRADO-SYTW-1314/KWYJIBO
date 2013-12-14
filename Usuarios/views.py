@@ -80,7 +80,7 @@ def Registro_Usuario(request):
 			else:
 				print "ENTER"
 				Nuevo_Usuario.save()
-				return HttpResponseRedirect('/')
+				return render_to_response('usuarios/registrado.html', context_instance=RequestContext(request))
 			
 
 		#else:
@@ -90,6 +90,7 @@ def Registro_Usuario(request):
 		return render_to_response('usuarios/registrate.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogIn(request):
+
 	if request.method == 'POST':
 		form = Form_Auth_Usuario(request.POST)
 		errores =[]
@@ -97,29 +98,23 @@ def LogIn(request):
 		if form.is_valid:
 			nick = request.POST['nick']
 			password = request.POST['password']
-			listado = Usuario.objects.get
 
 			try:
-				a = listado(nick=nick)
-			except: 
-				errores.append('El usuario no existe')
-				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
-
-			else:
+				a = Usuario.objects.get(nick=nick)
 				if a.password == request.POST['password']:
 					request.session['nick'] = a.nick
 					request.session['id'] = a.id
 					a.save()
-
-					return HttpResponseRedirect('/')
 					print 'Todo OK'
-
-				else:
-					errores.append('El usuario no coincide')
-					return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
+					return HttpResponseRedirect('/')
+			except:
+				errores.append('El usuario no existe o contrasena incorrecta')
+				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
+			else:
+				errores.append('El usuario no coincide o contrasena incorrecta')
+				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 	else:
 		form = Form_Auth_Usuario()
-		print "pepe";
 		return render_to_response('usuarios/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
@@ -130,29 +125,11 @@ def LogOut(request):
 	print request.session['nick']
 	if form.logueado(request.session['nick']) is None:
 		sesion = False
-		print "Session.nadie"
+		#print "Session.nadie"
 	else:
 		del request.session['nick']
 		del request.session['id']
-		print "Cerrando Sesion"
+		#print "Cerrando Sesion"
 		sesion = False
 		
-	return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
-
-def Session(request):
-
-	sesion = False
-	form = Form_Auth_Usuario()
-
-	try:
-		if form.logueado(request.session['nick']) is None:
-			sesion = False
-			print "Session.nadie"
-		else:
-			print "Session.alguien"
-			print request.session['nick']
-			sesion = True
-		return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
-	except:
-		print sesion
-		return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
+	return render_to_response('usuarios/cerrando_sesion.html', context_instance=RequestContext(request))

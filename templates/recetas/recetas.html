@@ -4,7 +4,13 @@
     {% endblock %}
 
     {% block header %}
-        <!-- Vacío -->
+        {% if request.session.nick %}
+            <li> <a> Hola {{ request.session.nick }}!</a> </li>
+            <li> <a href="/subir_receta/"> New recipe! </a> </li>
+            <li> <a href="/logout/"> Log Out </a> </li> 
+        {% else %}
+            <li> <a href="/login/"> Log In </a> </li>
+        {% endif %}
     {% endblock header %}
 
     {% block titulo_seccion %}
@@ -12,24 +18,77 @@
     {% endblock titulo_seccion %}
 
     {% block body %}
-        <center>
-            <div class="container">
-                {% for e in errores %}
-                    <ul>
-                        <li> {{ e }} </li>
-                    </ul>
-                {% endfor %}
-            </div>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-3 column">
+                    <div class="list-group">
+                        <center> <a class="list-group-item active"> Choose your recipe! </a> </center>
+                    </div>
+                    {% for l in lista %}
+                        <div = class="list-group-item">
+                            <a href="/recetas/{{l.id}}"> {{ l }} <a>
+                        </div>
+                    {% endfor %}                    
+                </div>
+                <div class="col-md-9 column">
+                    {% if receta == nil %}
+                        <center> <h3> Choose one Recipe! </h3> </center>
+                    {% else %}
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} {{ receta.grupo }} </a>
+                        </div>
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> Owner: </b> {{ receta.autor }} </a>
+                        </div>
+                        <div class="list-group">
+                            <a class="list-group-item"> <center> <img src="/static/images/{{ receta.imagen }}"> </center> </a>
+                        </div>
 
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-md-3 column">
-                        Aqui tienen que estar los titulos de las recetas
-                    </div>
-                    <div class="col-md-9 column">
-                        Aqui tiene que aparecer la receta
-                    </div>
+                        <div class="list-group">
+                            <a class="list-group-item active">
+                                {% if receta.dificultad == 'F' %}
+                                    <b> Difficulty: </b> easy
+                                {% elif receta.dificultad == 'M' %}
+                                    <b> Difficulty: </b> medium
+                                {% elif receta.dificultad == 'D' %}
+                                    <b> Difficulty: </b> hard
+                                {% endif %}
+                            </a>
+                        </div>
+
+                        <div class="list-group">
+                            {% if receta.grupo == 'C' %}
+                                <a class="list-group-item active"> <b> Group: </b> meat </a>
+                            {% elif receta.grupo == 'P' %}
+                                <a class="list-group-item active"> <b> Group: </b> fish </a>
+                            {% elif receta.grupo == 'Z' %}
+                                <a class="list-group-item active"> <b> Group: </b> pasta & pizza </a>
+                            {% elif receta.grupo == 'E' %}
+                                <a class="list-group-item active"> <b> Group: </b> salad </a>
+                            {% elif receta.grupo == 'H' %}
+                                <a class="list-group-item active"> <b> Group: </b> desserts and ice creams </a>
+                            {% elif receta.grupo == 'O' %}
+                                <a class="list-group-item active"> <b> Group: </b> other </a>
+                            {% endif %}
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> Time: </b> {{ receta.tiempo }} </a>
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> People: </b> {{ receta.personas }} </a>
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> Ingredients: </b> {{ receta.ingredientes }} </a>
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> How to do it: </b> {{ receta.elaboracion }} </a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-        </center>
+        </div>
     {% endblock %}

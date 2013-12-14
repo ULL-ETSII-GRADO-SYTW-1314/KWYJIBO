@@ -4,6 +4,12 @@
 	{% endblock titulo %}
 
 	{% block header %}
+		{% if request.session.nick %}
+			<li> <a> Hola {{ request.session.nick }}!</a> </li>
+            <li> <a href="/logout/"> Log Out </a> </li> 
+        {% else %}
+            <li> <a href="/login/"> Log In </a> </li>
+        {% endif %}
 	{% endblock header %}
 
 	{% block body %}
@@ -47,9 +53,14 @@
 								<center>
 									<IMG SRC="/static/images/logo_index.png">
 									<p>
+									{% if request.session.nick %}
+										<a href="/subir_receta/" class="btn btn-warning btn-large"> New recipe </a>
+										<a href="/recetas/" class="btn btn-warning btn-large"> View all recipes </a>
+									{% else %}
 										<a href="/login/" class="btn btn-default btn-large"> Log in </a> 
 										<a href="/registrate/" class="btn btn-success btn-large"> Sign in </a> 
 										<a href="/recetas/" class="btn btn-warning btn-large"> View all recipes </a>
+									{% endif %}
 									</p>
 								</center>
 							</div>
