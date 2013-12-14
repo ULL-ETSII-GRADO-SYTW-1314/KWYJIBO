@@ -113,5 +113,16 @@ def check_if_usuario_is_valid(step):
     assert world.valid_usuario is None  
 
 
+##########################################################################
+#Scenario: Nombre de usuarios sin palabrotas
 
-    
+#Obtengo un nombre de usuario pepe
+@step(r'Obtengo un nombre de usuario (.*)')
+def obtener_nombre_usuario(step,usuario):
+	world.usuario = usuario
+
+#Compruebo que el nombre de usuario no es vacio
+@step(r'Compruebo que el nombre de usuario no es vacio')
+def usuario_non_vacio(step):
+	assert world.usuario is not None
+
