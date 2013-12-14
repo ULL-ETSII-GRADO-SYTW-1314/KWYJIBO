@@ -51,4 +51,5 @@ Feature: Validacion modelo de usuario
 		Compruebo que el usuario no tiene palabrotas pepe
 		
 
+Feature: Validacion modelo de receta
 
