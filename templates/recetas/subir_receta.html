@@ -4,6 +4,11 @@
     {% endblock %}
 
     {% block header %}
+        {% if sesion %}
+            <li> <a href="/logout/"> Log Out </a> </li> 
+        {% else %}
+            <li> <a href="/login/"> Log In </a> </li>
+        {% endif %}
     {% endblock header %}
 
     {% block titulo_seccion %}
@@ -28,7 +33,7 @@
                         <div class="col-md-4 column">
                         </div>
                         <div class="col-md-4 column">
-                            <form role="form" action="/subir_receta/" method="POST">
+                            <form role="form" action="/subir_receta/" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label> Title </label>
@@ -40,7 +45,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label> Image </label>
-                                    <input id="id_imagen" name="imagen" type="file" />
+                                    <!--<input id="id_imagen" name="imagen" type="file" /> -->
+                                    {{ form.imagen }}
                                 </div>
                                 <div class="form-group">
                                     <label> Group </label>
@@ -81,7 +87,7 @@
                             </form>
                         </div>
                         <div class="col-md-4 column">
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
