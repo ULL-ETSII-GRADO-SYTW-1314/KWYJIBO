@@ -15,6 +15,5 @@ urlpatterns = patterns('',
 	url(r'^contact/', TemplateView.as_view(template_name="kwyjibo/contact.html"), name="contact"),
 	url(r'^logout/', 'Usuarios.views.LogOut'),
 	url(r'^recetas/', 'Recetas.views.mostrar_receta'),
-	url(r'^recetas/', TemplateView.as_view(template_name="recetas/recetas.html"), name="recetas"),
-	url(r'^$', 'Usuarios.views.Session', name="session"),	
+	url(r'^recetas/', TemplateView.as_view(template_name="recetas/recetas.html"), name="recetas"),	
 	)

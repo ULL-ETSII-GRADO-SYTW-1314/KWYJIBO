@@ -80,7 +80,7 @@ def Registro_Usuario(request):
 			else:
 				print "ENTER"
 				Nuevo_Usuario.save()
-				return HttpResponseRedirect('/')
+				return render_to_response('usuarios/registrado.html', context_instance=RequestContext(request))
 			
 
 		#else:
@@ -132,4 +132,4 @@ def LogOut(request):
 		#print "Cerrando Sesion"
 		sesion = False
 		
-	return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
+	return render_to_response('usuarios/cerrando_sesion.html', context_instance=RequestContext(request))
