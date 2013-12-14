@@ -62,3 +62,51 @@ def tener_elaboracion(step):
 	assert world.recipe.elaboracion is not None
 
 
+##################################################################################
+#Scenario: Comprobacion de las recetas
+
+#titulo no es mayor de 50
+@step(r'titulo no es mayor de 50')
+def titulo_no_mayor(step):
+	if len(world.recipe.titulo) < 50:
+		assert True
+	else:
+		assert False
+
+#autor no es mayor de 50 
+@step(r'autor no es mayor de 50')
+def autor_no_mayor(step):
+	if len(world.recipe.autor) < 50:
+		assert True
+	else:
+		assert False
+#grupo no es mayor de 50 
+@step(r'grupo no es mayor de 50')
+def grupo_no_mayor(step):
+	if len(world.recipe.grupo) < 50:
+		assert True
+	else:
+		assert False
+#tiempo no es mayor de 500
+@step(r'tiempo no es mayor de 500')
+def tiempo_no_mayor(step):
+	if len(world.recipe.tiempo) < 500:
+		assert True
+	else:
+		assert False
+#numero de personas no es mayor de 50
+@step(r'numero de personas no es mayor de 50')
+def titulo_no_mayor(step):
+	if len(world.recipe.personas) < 50:
+		assert True
+	else:
+		assert False
+
+#elaboracion no es mayor a 50
+@step(r'elaboracion no es mayor a 50')
+def titulo_no_mayor(step):
+	if len(world.recipe.elaboracion) < 50:
+		assert True
+	else:
+		assert False
+
