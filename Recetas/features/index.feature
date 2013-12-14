@@ -1,7 +1,10 @@
 Feature: Validacion modelo de Recetas
 
+	Scenario: Probar el acceso al HTML raiz
+		acceder a la url "/"
 
-Scenario : Subir una Receta
+
+	Scenario: Subir una Receta
 		Crear una receta
 		Debe tener un titulo
 		Debe tener un autor
