@@ -30,15 +30,19 @@
                     {% endfor %}                    
                 </div>
                 <div class="col-md-9 column">
-                    <div class="list-group">
-                        <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} </a>
-                    </div>
-                    <div class="list-group-item">
-                        <img src="/static/images/{{ receta.imagen }}"> </a>
-                    </div>
-                    <div class="list-group-item">
-                        
-                    </div>
+                    {% if receta == nil %}
+                        <center> <h3> No recipes! </h3> </center>
+                    {% else %}
+                        <div class="list-group">
+                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} </a>
+                        </div>
+                        <div class="list-group-item">
+                            <center> <img src="/static/images/{{ receta.imagen }}"> </center>
+                        </div>
+                        <div class="list-group-item">
+                            
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
