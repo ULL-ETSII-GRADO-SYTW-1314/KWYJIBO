@@ -106,7 +106,7 @@ def LogIn(request):
 					request.session['id'] = a.id
 					a.save()
 					print 'Todo OK'
-					return render_to_response('kwyjibo/index.html', context_instance=RequestContext(request))
+					return HttpResponseRedirect('/')
 			except:
 				errores.append('El usuario no existe o contrasena incorrecta')
 				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))

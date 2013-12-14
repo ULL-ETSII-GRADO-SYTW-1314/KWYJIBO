@@ -4,7 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	
 	url(r'^$', TemplateView.as_view(template_name="kwyjibo/index.html")), 
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^subir_receta/', 'Recetas.views.subir_receta'),
@@ -17,5 +16,5 @@ urlpatterns = patterns('',
 	url(r'^logout/', 'Usuarios.views.LogOut'),
 	url(r'^recetas/', 'Recetas.views.mostrar_receta'),
 	url(r'^recetas/', TemplateView.as_view(template_name="recetas/recetas.html")),
-	#url(r'\s', 'Usuarios.views.Session'),
+	url(r'^(\S+)', 'Usuarios.views.Session', name="session"),
 	)
