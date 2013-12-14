@@ -50,6 +50,7 @@ def tamano_pass(step):
 		assert True
 	else:
 		assert False
+		
 #Debe tener fecha de fecha_nacimiento
 @step(r'Debe tener una fecha de nacimiento')
 def fecha_nacimiento(step):
