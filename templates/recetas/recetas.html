@@ -24,10 +24,16 @@
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-md-3 column">
-                        Aqui tienen que estar los titulos de las recetas
+                        {% for l in lista %}
+                            <ul>
+                                <a href="/recetas/{{l.id}}"> {{ l }} </a>
+                            </ul>
+                        {% endfor %}
                     </div>
                     <div class="col-md-9 column">
-                        Aqui tiene que aparecer la receta
+                        <h4> {{ receta.titulo }} </h4>
+                        <img SRC="/static/images/{{ receta.imagen }}">
+                        <h4> {{ receta.personas }} </h4>
                     </div>
                 </div>
             </div>
