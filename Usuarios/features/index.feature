@@ -52,13 +52,6 @@ Feature: Validacion modelo de usuario
 		
 
 
-	Scenario : Subir una Receta
-		Debe tener un titulo pollo
-		Debe tener un autor
-		Debe tener grupo
-		Debe tener una dificultad
-		Debe tener un tiempo
-		Debe tener un numero de personas
-		Debe tener una elaboracion
+	
 
 
