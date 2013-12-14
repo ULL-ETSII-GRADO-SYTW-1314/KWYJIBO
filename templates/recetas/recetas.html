@@ -4,7 +4,7 @@
     {% endblock %}
 
     {% block header %}
-        {% if sesion %}
+        {% if request.session.nick %}
             <li> <a href="/subir_receta/"> New recipe! </a> </li>
             <li> <a href="/logout/"> Log Out </a> </li> 
         {% else %}
