@@ -20,31 +20,56 @@
                     </ul>
                 {% endfor %}
             </div>
+        </center>
 
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-md-12 column">
-                        <div class="jumbotron">
-                            <form action="/registrate/" method="POST">
-                                {% csrf_token %} 
-                                <center><h4> <label> Nick </label> </h4>
-                                <h4> {{ form.nick }} </h4>
-                                <h4> <label> Nombre </label> </h4>
-                                <h4> {{ form.nombre }} </h4>
-                                <h4> <label> Apellidos </label> </h4>
-                                <h4> {{ form.apellidos }} </h4>
-                                <h4> <label> Email </label> </h4>
-                                <h4> {{ form.email }} {{ form.remail }} </h4>
-                                <h4> <label> Password </label> </h4>
-                                <h4> {{ form.password }} {{ form.repassword }} </h4>
-                                <h4> <label> Date of birth </label> </h4>
-                                <h4> {{ form.fecha_nacimiento }} </h4>
-                                <input type="submit" class="btn btn-primary btn-large" value=" Enviar" />
-                            </form>
-                            <p>  </p>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="row clearfix">
+                        <div class="col-md-4 column">
                         </div>
+                        <div class="col-md-4 column">
+                            <form role="form" action="/registrate/" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label> Username </label>
+                                    <input placeholder="Username" class="form-control" id="id_nick" maxlength="50" name="nick" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label> First name </label>
+                                    <input placeholder="First name" class="form-control" id="id_nombre" maxlength="50" name="nombre" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label> Last name </label>
+                                    <input placeholder="Last name" class="form-control" id="id_apellidos" maxlength="50" name="apellidos" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label> Email </label>
+                                    <input placeholder="Email" class="form-control" id="id_email" name="email" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label> Repeat email </label>
+                                    <input placeholder="Repeat email" class="form-control" id="id_remail" name="remail" type="text"  />
+                                </div>
+                                <div class="form-group">
+                                    <label> Password </label>
+                                    <input placeholder="Password" class="form-control" id="id_password" name="password" type="password" />
+                                </div> 
+                                <div class="form-group">
+                                    <label> Repeat password </label>
+                                    <input placeholder="Repeat password" class="form-control" id="id_repassword" name="repassword" type="password" /> 
+                                </div>
+                                <div class="form-group">
+                                    <label> Date of birth </label>
+                                    <input placeholder="Date of birth" class="form-control" id="id_fecha_nacimiento" maxlength="50" name="fecha_nacimiento" type="" /> 
+                                </div>                             
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                        <div class="col-md-4 column">
+                    </div>
                     </div>
                 </div>
             </div>
-        </center>
+        </div>
     {% endblock %}
