@@ -5,6 +5,7 @@
 
     {% block header %}
         {% if request.session.nick %}
+            <li> <a> Hola {{ request.session.nick }}!</a> </li>
             <li> <a href="/logout/"> Log Out </a> </li> 
         {% else %}
             <li> <a href="/login/"> Log In </a> </li>
@@ -41,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label> Owner </label>
-                                    <input placeholder="Owner" class="form-control" id="id_autor" maxlength="50" name="autor" type="text" />
+                                    <input placeholder={{ request.session.nick }} value={{ request.session.nick }} class="form-control" id="id_autor" maxlength="50" name="autor" type="text" />
                                 </div>
                                 <div class="form-group">
                                     <label> Image </label>

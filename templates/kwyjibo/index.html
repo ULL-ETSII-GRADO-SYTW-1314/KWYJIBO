@@ -5,6 +5,7 @@
 
 	{% block header %}
 		{% if request.session.nick %}
+			<li> <a> Hola {{ request.session.nick }}!</a> </li>
             <li> <a href="/logout/"> Log Out </a> </li> 
         {% else %}
             <li> <a href="/login/"> Log In </a> </li>
