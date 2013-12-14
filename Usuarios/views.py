@@ -134,10 +134,11 @@ def LogOut(request):
 		
 	return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
 
-def Session(request):
+def Session(request,aux):
 
 	sesion = False
 	form = Form_Auth_Usuario()
+	print aux
 
 	try:
 		if form.logueado(request.session['nick']) is None:
@@ -147,7 +148,7 @@ def Session(request):
 			print "Session.alguien"
 			print request.session['nick']
 			sesion = True
-		return render_to_response('base.html', {'sesion':sesion}, context_instance=RequestContext(request))
+		return render_to_response(aux, {'sesion':sesion}, context_instance=RequestContext(request))
 	except:
 		print sesion
-		return render_to_response('base.html', {'sesion':sesion}, context_instance=RequestContext(request))
+		return render_to_response(aux, {'sesion':sesion}, context_instance=RequestContext(request))
