@@ -18,9 +18,6 @@ def access_url(step, url):
     world.dom = html.fromstring(response.content)
 
 #Scenario Subir una Receta
-@step (r'crearalgo')
-def crear_algo(step):
-	assert True
 
 #Crear una receta
 @step(r'Crear una receta')
@@ -30,5 +27,13 @@ def crear_receta(step):
 	assert (world.recipe,Receta())
 
 #Debe tener un titulo
-#@step(r')
+@step(r'Debe tener un titulo')
+def tener_titulo(step):
+	assert world.recipe.titulo is not None
+
+#Debe tener un autor
+@step(r'Debe tener un autor')
+def tener_autor(step):
+	assert world.recipe.autor is not None
+	
 
