@@ -4,7 +4,6 @@ from Usuarios.models import *
 from Usuarios.forms import *
 from django.core.context_processors import csrf
 from django.template import RequestContext
-from django.contrib.auth.forms import AuthenticationForm
 from django.core.exceptions import ObjectDoesNotExist
 
 def Registro_Usuario(request):
@@ -72,7 +71,7 @@ def Registro_Usuario(request):
 			if(Nuevo_Usuario.checkDate(fecha) is not None):
 				Nuevo_Usuario.fecha_nacimiento = fecha
 			else:
-				errors.append('Fecha erronea: Debe ser mayor de 14 anos')
+				errores.append('Fecha erronea: Debe ser mayor de 14 anos')
 
 			print "FIN"
 			#GUARDAMOS EN LA BBDD
@@ -81,7 +80,7 @@ def Registro_Usuario(request):
 			else:
 				print "ENTER"
 				Nuevo_Usuario.save()
-				return HttpResponseRedirect('/admin/')
+				return HttpResponseRedirect('/')
 			
 
 		#else:
@@ -92,8 +91,8 @@ def Registro_Usuario(request):
 
 def LogIn(request):
 	if request.method == 'POST':
-		form = AuthenticationForm(request.POST)
-		errors =[]
+		form = Form_Auth_Usuario(request.POST)
+		errores =[]
 
 		if form.is_valid:
 			nick = request.POST['nick']
@@ -103,31 +102,57 @@ def LogIn(request):
 			try:
 				a = listado(nick=nick)
 			except: 
-				errors.append('El usuario no existe')
-				return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+				errores.append('El usuario no existe')
+				return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 
 			else:
-				print a.password
 				if a.password == request.POST['password']:
-					request.session['usuario'] = a.usuario
+					request.session['nick'] = a.nick
 					request.session['id'] = a.id
 					a.save()
 
-					return HttpResponseRedirect('/microposts/')
+					return HttpResponseRedirect('/')
 					print 'Todo OK'
 
 				else:
-					errors.append('El usuario no coincide')
-					return render_to_response('twitter/index.html', {'form':form,'errors':errors}, context_instance=RequestContext(request))
+					errores.append('El usuario no coincide')
+					return render_to_response('usuarios/login.html', {'form':form,'errores':errores}, context_instance=RequestContext(request))
 	else:
-		form = AuthenticationForm()
-		return render_to_response('twitter/index.html', {'form': form}, context_instance=RequestContext(request))
+		form = Form_Auth_Usuario()
+		print "pepe";
+		return render_to_response('usuarios/login.html', {'form':form}, context_instance=RequestContext(request))
 
 def LogOut(request):
-	
-	try:
-		del request.session['usuario']
+
+	sesion = False
+	form = Form_Auth_Usuario()
+
+	print request.session['nick']
+	if form.logueado(request.session['nick']) is None:
+		sesion = False
+		print "Session.nadie"
+	else:
+		del request.session['nick']
 		del request.session['id']
+		print "Cerrando Sesion"
+		sesion = False
+		
+	return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
+
+def Session(request):
+
+	sesion = False
+	form = Form_Auth_Usuario()
+
+	try:
+		if form.logueado(request.session['nick']) is None:
+			sesion = False
+			print "Session.nadie"
+		else:
+			print "Session.alguien"
+			print request.session['nick']
+			sesion = True
+		return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
 	except:
-		pass
-	return render_to_response('twitter/logout.html')
+		print sesion
+		return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
