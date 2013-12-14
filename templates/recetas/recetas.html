@@ -31,50 +31,58 @@
                 </div>
                 <div class="col-md-9 column">
                     {% if receta == nil %}
-                        <center> <h3> No recipes! </h3> </center>
+                        <center> <h3> Choose one Recipe! </h3> </center>
                     {% else %}
                         <div class="list-group">
-                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} </a>
+                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} {{ receta.grupo }} </a>
                         </div>
                         <div class="list-group">
                             <a class="list-group-item active"> <b> Owner: </b> {{ receta.autor }} </a>
                         </div>
-                        <div class="list-group-item">
-                            <center> <img src="/static/images/{{ receta.imagen }}"> </center>
+                        <div class="list-group">
+                            <a class="list-group-item"> <center> <img src="/static/images/{{ receta.imagen }}"> </center> </a>
                         </div>
-                        <div class="list-group-item">
-                            {% if receta.dificultad == 'F' %}
-                                <b> Difficulty: </b> easy
-                            {% elif receta.dificultad == 'M' %}
-                                <b> Difficulty: </b> medium
-                            {% elif receta.dificultad == 'D' %}
-                                <b> Difficulty: </b> hard
-                            {% endif %}
+
+                        <div class="list-group">
+                            <a class="list-group-item active">
+                                {% if receta.dificultad == 'F' %}
+                                    <b> Difficulty: </b> easy
+                                {% elif receta.dificultad == 'M' %}
+                                    <b> Difficulty: </b> medium
+                                {% elif receta.dificultad == 'D' %}
+                                    <b> Difficulty: </b> hard
+                                {% endif %}
+                            </a>
                         </div>
-                        <div class="list-group-item">
+
+                        <div class="list-group">
                             {% if receta.grupo == 'C' %}
-                                <b> Difficulty: </b> meat
+                                <a class="list-group-item active"> <b> Group: </b> meat </a>
                             {% elif receta.grupo == 'P' %}
-                                <b> Difficulty: </b> fish
+                                <a class="list-group-item active"> <b> Group: </b> fish </a>
                             {% elif receta.grupo == 'P&P' %}
-                                <b> Difficulty: </b> pasta & pizza
+                                <a class="list-group-item active"> <b> Group: </b> pasta & pizza </a>
                             {% elif receta.grupo == 'E' %}
-                                <b> Difficulty: </b> salad
+                                <a class="list-group-item active"> <b> Group: </b> salad </a>
                             {% elif receta.grupo == 'P&H' %}
-                                <b> Difficulty: </b> desserts and ice creams
+                                <a class="list-group-item active"> <b> Group: </b> desserts and ice creams </a>
                             {% elif receta.grupo == 'O' %}
-                                <b> Difficulty: </b> other
+                                <a class="list-group-item active"> <b> Group: </b> other </a>
                             {% endif %}
                         </div>
+
                         <div class="list-group">
                             <a class="list-group-item active"> <b> Time: </b> {{ receta.tiempo }} </a>
                         </div>
+
                         <div class="list-group">
                             <a class="list-group-item active"> <b> People: </b> {{ receta.personas }} </a>
                         </div>
+
                         <div class="list-group">
                             <a class="list-group-item active"> <b> Ingredients: </b> {{ receta.ingredientes }} </a>
                         </div>
+
                         <div class="list-group">
                             <a class="list-group-item active"> <b> How to do it: </b> {{ receta.elaboracion }} </a>
                         </div>

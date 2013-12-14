@@ -85,7 +85,7 @@ def subir_receta(request):
 				return render_to_response('recetas/subir_receta.html', {'form':form, 'errores':errores}, context_instance=RequestContext(request))
 			else:	
 				Nueva_Receta.save()
-				return HttpResponseRedirect('/admin/')
+				return render_to_response('recetas/subida_de_receta.html', context_instance=RequestContext(request))
 		#else:
 			#return HttpResponseRedirect('www.google.es')
 	else:
