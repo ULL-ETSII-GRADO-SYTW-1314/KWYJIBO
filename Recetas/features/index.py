@@ -50,6 +50,15 @@ def tener_dificultad(step):
 @step(r'Debe tener un tiempo')
 def tener_tiempo(step):
 	assert world.recipe.tiempo is not None
-	
+
+#Debe tener un numero de personas
+@step(r'Debe tener un numero de personas')
+def tener_personas(step):
+	assert world.recipe.personas is not None
+
+#Debe tener una elaboracion
+@step(r'Debe tener una elaboracion')
+def tener_elaboracion(step):
+	assert world.recipe.elaboracion is not None
 
 
