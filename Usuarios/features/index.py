@@ -50,7 +50,7 @@ def tamano_pass(step):
 		assert True
 	else:
 		assert False
-		
+
 #Debe tener fecha de fecha_nacimiento
 @step(r'Debe tener una fecha de nacimiento')
 def fecha_nacimiento(step):
@@ -161,5 +161,13 @@ def usuario_logueado(step):
 		{'nick': world.user.nick, 'password': world.user.password})
 
 
+################################################################################
+#Scenario Un usuario accede a varias url
 
+@step(r'Tienes una url(.*)')
+def have_a_url(step, url):
+    world.url = url
 
+@step(r'Accedes a la url')
+def I_access_the_url(step):
+    world.response = world.browser.get(world.url)

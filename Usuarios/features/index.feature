@@ -56,6 +56,15 @@ Feature: Validacion modelo de usuario
 		Un usuario se loguea
 
 
-	
+	Scenario: Un usuario accede a varias url
+		Given Tienes una url <url>
+		Then Accedes a la url
+	#Examples:
+	#|/login/         |
+	#|/registrate/    |
+	#|/subir_receta   |
+	#|/contact/		  |
+	#|/about/         |
+	#|/     		  |
 
 
