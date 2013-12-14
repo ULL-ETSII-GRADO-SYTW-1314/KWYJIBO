@@ -10,9 +10,9 @@ class Receta(models.Model):
 	GRUPOS = (
 		('C', 'Carne'),
 		('P', 'Pescado'),
-		('P&P', 'Pasta y Pizza'),
+		('Z', 'Pasta y Pizza'),
 		('E', 'Ensaladas'),
-		('P&H', 'Postres y Helados'),
+		('H', 'Postres y Helados'),
 		('O', 'Otros'),
 		)
 

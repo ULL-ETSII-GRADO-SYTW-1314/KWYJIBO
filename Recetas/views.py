@@ -62,6 +62,24 @@ def subir_receta(request):
 				errores.append('El campo "personas" contiene caracteres no validos. ')
 
 
+			#SECCION DEL GRUPO DE LA RECETA.
+			grupo = form.cleaned_data['grupo']
+			grupo = grupo.__str__()
+			grupo = grupo[3:4]
+			if len(grupo) > 0:
+				Nueva_Receta.grupo = grupo
+			else:
+				errores.append('El campo "grupo" no ha sido seleccionado ')
+
+			#SECCION DE LA DIFICULTAD DE LA RECETA.
+			dificultad = form.cleaned_data['dificultad']
+			dificultad = dificultad.__str__()
+			dificultad = dificultad[3:4]
+			if len(dificultad) > 0:
+				Nueva_Receta.dificultad = dificultad
+			else:
+				errores.append('El campo "dificultad" no ha sido seleccionado ')
+
 			#SECCION DE LOS INGREDIENTES DE LA RECETA.
 
 			if(Receta.checkCharField(form.cleaned_data['ingredientes']) is not None):
