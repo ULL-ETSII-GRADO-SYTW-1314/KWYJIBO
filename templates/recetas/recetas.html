@@ -17,30 +17,28 @@
     {% endblock titulo_seccion %}
 
     {% block body %}
-        <center>
-            <div class="container">
-                {% for e in errores %}
-                    <ul>
-                        <li> {{ e }} </li>
-                    </ul>
-                {% endfor %}
-            </div>
-
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-md-3 column">
-                        {% for l in lista %}
-                            <ul>
-                                <a href="/recetas/{{l.id}}"> {{ l }} </a>
-                            </ul>
-                        {% endfor %}
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-3 column">
+                    <div class="list-group">
+                        <center> <a class="list-group-item active"> Choose your recipe! </a> </center>
                     </div>
-                    <div class="col-md-9 column">
-                        <h4> {{ receta.titulo }} </h4>
-                        <img SRC="/static/images/{{ receta.imagen }}">
-                        <h4> {{ receta.personas }} </h4>
+                    {% for l in lista %}
+                        <div = class="list-group-item">
+                            <a href="/recetas/{{l.id}}"> {{ l }} <a>
+                        </div>
+                    {% endfor %}                    
+                </div>
+                <div class="col-md-9 column">
+                    <div class="list-group">
+                        <center>
+                            <a class="list-group-item active"> {{ receta.titulo }} </a>
+                        </center>
+                    </div>
+                    <div class="list-group-item">
+                        <img src="/static/images/{{ receta.imagen }}"> </a>
                     </div>
                 </div>
             </div>
-        </center>
+        </div>
     {% endblock %}
