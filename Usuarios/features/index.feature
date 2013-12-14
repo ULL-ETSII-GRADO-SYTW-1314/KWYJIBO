@@ -43,3 +43,17 @@ Feature: Validacion modelo de usuario
 	#|angie(lokilla)|
 
 
+
+	Scenario: Nombres de usuario sin palabrotas
+		Obtengo un nombre de usuario pepe
+		Compruebo que el nombre de usuario no es vacio
+		Compruebo que el nombre de usuario es valido
+		Compruebo que el usuario no tiene palabrotas
+
+	Scenario: Nombres de usuario con palabrotas
+		Obtengo un nombre de usuario hijoputa
+		Compruebo que el nombre de usuario no es vacio
+		Compruebo que el nombre de usuario es valido
+		Compruebo que el usuario tiene palabrotas
+
+
