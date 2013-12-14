@@ -126,3 +126,24 @@ def obtener_nombre_usuario(step,usuario):
 def usuario_non_vacio(step):
 	assert world.usuario is not None
 
+#Compruebo que el nombre de usuario es valido
+@step(r'Compruebo que el nombre de usuario es valido')
+def usuario_nombre_valido(step):
+	assert Usuario.checkUsuario(world.usuario) is not None
+
+#Compruebo que el usuario no tiene palabrotas
+@step(r'Compruebo que el usuario no tiene palabrotas(.*)')
+def no_palabrotas(step,usuario):
+	nombre = usuario
+
+	if (nombre != 'hijoputa'):
+		assert True
+	else:
+		assert False
+
+
+
+
+
+
+
