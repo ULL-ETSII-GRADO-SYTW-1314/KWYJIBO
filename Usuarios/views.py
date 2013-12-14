@@ -125,30 +125,11 @@ def LogOut(request):
 	print request.session['nick']
 	if form.logueado(request.session['nick']) is None:
 		sesion = False
-		print "Session.nadie"
+		#print "Session.nadie"
 	else:
 		del request.session['nick']
 		del request.session['id']
-		print "Cerrando Sesion"
+		#print "Cerrando Sesion"
 		sesion = False
 		
 	return render_to_response('kwyjibo/index.html', {'sesion':sesion}, context_instance=RequestContext(request))
-
-def Session(request,aux):
-
-	sesion = False
-	form = Form_Auth_Usuario()
-	print aux
-
-	try:
-		if form.logueado(request.session['nick']) is None:
-			sesion = False
-			print "Session.nadie"
-		else:
-			print "Session.alguien"
-			print request.session['nick']
-			sesion = True
-		return render_to_response(aux, {'sesion':sesion}, context_instance=RequestContext(request))
-	except:
-		print sesion
-		return render_to_response(aux, {'sesion':sesion}, context_instance=RequestContext(request))

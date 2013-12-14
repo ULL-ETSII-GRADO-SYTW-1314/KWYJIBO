@@ -1,11 +1,14 @@
 {% extends "base.html" %}
-{% url session 'usuarios/login.html' %}
     {% block titulo %}
         KWYJIBO - Log in
     {% endblock %}
 
     {% block header %}
-        <!-- Vacío -->
+        {% if request.session.nick %}
+            <li> <a href="/logout/"> Log Out </a> </li> 
+        {% else %}
+            <li> <a href="/login/"> Log In </a> </li>
+        {% endif %}
     {% endblock header %}
 
     {% block titulo_seccion %}
@@ -13,6 +16,7 @@
     {% endblock titulo_seccion %}
 
     {% block body %}
+    
         <center>
             <div class="container">
                 {% for e in errores %}

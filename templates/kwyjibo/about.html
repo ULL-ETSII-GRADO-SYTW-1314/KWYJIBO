@@ -4,7 +4,11 @@
     {% endblock %}
 
     {% block header %}
-        <!-- Vacío -->
+        {% if request.session.nick %}
+            <li> <a href="/logout/"> Log Out </a> </li> 
+        {% else %}
+            <li> <a href="/login/"> Log In </a> </li>
+        {% endif %}
     {% endblock header %}
 
     {% block titulo_seccion %}
