@@ -53,14 +53,17 @@ def tamano_pass(step):
 #Debe tener fecha de fecha_nacimiento
 @step(r'Debe tener una fecha de nacimiento')
 def fecha_nacimiento(step):
-	assert world.user.fecha_nacimiento is not None
+	user = Usuario()
+	assert user.checkDate(world.user.fecha_nacimiento) is not None
 
 
 #Scenario Password de un usuario
 #Debe tener un password 1234A
 @step(r'Debe tener un password valido (.*)')
 def tener_un_password(step, password):
+	user = Usuario()
 	world.password_valido = password
+	assert user.checkPassword(world.password_valido) is not None
 
 #El password debe ser valido
 @step(r'Debe tener un passwords')
