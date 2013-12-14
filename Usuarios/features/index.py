@@ -140,7 +140,13 @@ def no_palabrotas(step,usuario):
 		assert True
 	else:
 		assert False
-
+##############################################################################
+#Scenario Subir una Receta
+#Debe tener un titulo
+@step(r'Debe tener un titulo(.*)')
+def titulo_receta(step,titulo):
+	world.titulo = titulo
+	
 
 
 
