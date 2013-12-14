@@ -4,7 +4,7 @@
     {% endblock %}
 
     {% block header %}
-        {% if request.session.nick %}
+        {% if sesion %}
             <li> <a href="/subir_receta/"> New recipe! </a> </li>
             <li> <a href="/logout/"> Log Out </a> </li> 
         {% else %}
@@ -31,9 +31,7 @@
                 </div>
                 <div class="col-md-9 column">
                     <div class="list-group">
-                        <center>
-                            <a class="list-group-item active"> <b> Title </b> {{ receta.titulo }} </a>
-                        </center>
+                        <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} </a>
                     </div>
                     <div class="list-group-item">
                         <img src="/static/images/{{ receta.imagen }}"> </a>
