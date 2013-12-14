@@ -35,5 +35,21 @@ def tener_titulo(step):
 @step(r'Debe tener un autor')
 def tener_autor(step):
 	assert world.recipe.autor is not None
+
+#Debe tener grupo
+@step(r'Debe tener grupo')
+def tener_grupo(step):
+	assert world.recipe.grupo is not None
+
+#Debe tener una dificultad
+@step(r'Debe tener una dificultad')
+def tener_dificultad(step):
+	assert world.recipe.dificultad is not None
+
+#Debe tener un tiempo
+@step(r'Debe tener un tiempo')
+def tener_tiempo(step):
+	assert world.recipe.tiempo is not None
 	
+
 
