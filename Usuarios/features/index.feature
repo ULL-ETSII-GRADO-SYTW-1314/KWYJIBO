@@ -14,11 +14,12 @@ Feature: Validacion modelo de usuario
 		Debe tener una fecha de nacimiento
 
 	Scenario: Password de un usuario
-		Debe tener un password A1234
-		Debe tener un password valido
+		Debe tener un password  valido A1234
+		Debe tener un passwords 
 		El password no puede estar vacio A1234
 		Existe un segundo password A1234
 		El segundo password no es vacio A1234
+		Los password son iguales
 
 	Scenario: These users with length shorter than 50 should pass
 			Given I have a usuario Macarena
@@ -37,6 +38,7 @@ Feature: Validacion modelo de usuario
 	#Examples:
 	#|usuario       |
 	#|Je$$ica       |
+	#|@MenTE		|
 	#|@jess         |
 	#|Fer/ni        |
 	#|angie(lokilla)|

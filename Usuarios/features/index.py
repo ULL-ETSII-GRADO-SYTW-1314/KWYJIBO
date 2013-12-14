@@ -58,14 +58,16 @@ def fecha_nacimiento(step):
 
 #Scenario Password de un usuario
 #Debe tener un password 1234A
-@step(r'Debe tener un password(.*)')
+@step(r'Debe tener un password valido (.*)')
 def tener_un_password(step, password):
 	world.password_valido = password
+
 #El password debe ser valido
-@step(r'Debe tener un password valido')
+@step(r'Debe tener un passwords')
 def password_valid(step):
 	user = Usuario()
-	assert_equals(world.second_password, user.checkPassword(world.second_password))
+	assert_equals(world.password_valido, user.checkPassword(world.password_valido))
+
 
 #El password no puede estar vacio
 @step(r'El password no puede estar vacio')
@@ -85,11 +87,23 @@ def segundo_password(step,password):
 #El segundo password no es vacio
 @step(r'El segundo password no es vacio(.*)')
 def primer_no_vacio(step,password):
-	world.second_password = password
+	#world.second_password = password
 	if len(world.second_password)>1:
 		assert True
 	else:
 		assert False
+
+#Los password son iguales
+@step(r'los password son iguales')
+def password_iguales(step):
+	user = Usuario()
+	world.second_password = "A1234"
+	chuchu = "A1234"
+	if(user.checkDifferentEmail(world.second_password,chuchu) is not None):
+		assert False
+	else:
+		assert True
+
 
 
 @step(r'I have a usuario (.*)')
