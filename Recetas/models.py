@@ -31,8 +31,8 @@ class Receta(models.Model):
 	dificultad = models.CharField(max_length=3, choices=DIFICULTADES)
 	tiempo = models.IntegerField(max_length=500) #en minutos
 	personas = models.IntegerField(max_length=50)
-	ingredientes = models.TextField(max_length=500)
-	elaboracion = models.TextField(max_length=500) #TextField
+	ingredientes = models.TextField(max_length=5000)
+	elaboracion = models.TextField(max_length=5000) #TextField
 	hora_subida = models.DateTimeField(auto_now_add=True)
 	def __unicode__(self):
 		return self.titulo

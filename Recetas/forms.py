@@ -26,6 +26,6 @@ class Form_Receta(forms.Form):
 	dificultad = MultipleChoiceField(required=False, widget=SelectMultiple(), choices=DIFICULTADES, label='Dificultad')
 	tiempo = forms.IntegerField(label='Tiempo')
 	personas = forms.IntegerField(max_value=50, label='Personas')
-	ingredientes = forms.CharField(widget=forms.Textarea, max_length=500, label='Ingredientes')
-	elaboracion = forms.CharField(widget=forms.Textarea, max_length=500, label='Elaboracion')
+	ingredientes = forms.CharField(widget=forms.Textarea, max_length=5000, label='Ingredientes')
+	elaboracion = forms.CharField(widget=forms.Textarea, max_length=5000, label='Elaboracion')
 	hora_subida = models.DateTimeField(blank=True)
