@@ -19,9 +19,58 @@
 
     {% block body %}
         <div class="container">
+            <center>
+                <div class="container">
+                    {% for e in errores %}
+                        <ul>
+                            <li> {{ e }} </li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            </center>
+
+            <center>
+            <div class="col-md-12 column ui-sortable">
+                <form role="form" action="/recetas/" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-3 column ui-sortable">
+                        <input placeholder="Title" class="form-control" id="id_titulo" maxlength="50" name="titulo" type="text" />
+                    </div>
+                    <div class="col-md-3 column ui-sortable">
+                        <input placeholder="Owner" class="form-control" id="id_autor" maxlength="50" name="autor" type="text" />
+                    </div>
+                    <div class="col-md-3 column ui-sortable">
+                        <select class="form-control" id="id_grupo" name="grupo" />
+                            <option value="X"> Group </option>
+                            <option value="C"> Meat </option>
+                            <option value="P"> Fish </option>
+                            <option value="Z"> Pasta & pizza</option>
+                            <option value="E"> Salad </option>
+                            <option value="H"> Desserts & Ice creams</option>
+                            <option value="O"> Others </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 column ui-sortable">
+                        <select class="form-control" id="id_dificultad" name="dificultad" />
+                            <option value="X"> Dificulty </option>
+                            <option value="F"> Easy </option>
+                            <option value="M"> Medium </option>
+                            <option value="D"> Hard </option>
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <input id="boton" type="submit" class="btn btn-info" value="Filtrar" />
+                    </div>
+                </form>
+            </div>
+            </center>
+
+
             <div class="row clearfix">
                 <div class="col-md-3 column">
                     <div class="list-group">
+                    <br>
+                     <br>
                         <center> <a class="list-group-item active"> Choose your recipe! </a> </center>
                     </div>
                     {% for l in lista %}
@@ -30,12 +79,18 @@
                         </div>
                     {% endfor %}                    
                 </div>
+
+
+
+
                 <div class="col-md-9 column">
+                <br>
+                <br>
                     {% if receta == nil %}
                         <center> <h3> Choose one Recipe! </h3> </center>
                     {% else %}
                         <div class="list-group">
-                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }} {{ receta.grupo }} </a>
+                            <a class="list-group-item active"> <b> Title: </b> {{ receta.titulo }}</a>
                         </div>
                         <div class="list-group">
                             <a class="list-group-item active"> <b> Owner: </b> {{ receta.autor }} </a>
@@ -73,7 +128,7 @@
                         </div>
 
                         <div class="list-group">
-                            <a class="list-group-item active"> <b> Time: </b> {{ receta.tiempo }} </a>
+                            <a class="list-group-item active"> <b> Time (min): </b> {{ receta.tiempo }} </a>
                         </div>
 
                         <div class="list-group">

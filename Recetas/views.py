@@ -51,7 +51,7 @@ def subir_receta(request):
 				tiempo = Receta.checkIntegerField(form.cleaned_data['tiempo'])
 				Nueva_Receta.tiempo = tiempo
 			else:
-				errores.append('El campo "tiempo" contiene caracteres no validos. ')
+				errores.append('El campo "tiempo" contiene caracteres no validos. Recuerda que son minutos. ')
 
 			#SECCION DEL NUMERO DE PERSONAS DE LA RECETA.
 
@@ -104,14 +104,15 @@ def subir_receta(request):
 			else:	
 				Nueva_Receta.save()
 				return render_to_response('recetas/subida_de_receta.html', context_instance=RequestContext(request))
-		#else:
-			#return HttpResponseRedirect('www.google.es')
+		else:
+			errores = []
+			errores.append(' Fallo al rellenar el formulario de la receta. ')
+			return render_to_response('recetas/subir_receta.html', {'form':form, 'errores':errores}, context_instance=RequestContext(request))
 	else:
 		form = Form_Receta()
 		return render_to_response('recetas/subir_receta.html', {'form':form}, context_instance=RequestContext(request))
 
-def mostrar_receta(request):
-
+def buscar_receta(request):
 	#Obtener el id de la receta.
 	path = request.path_info.__str__()
 	len_path = len("/recetas/")
@@ -119,14 +120,57 @@ def mostrar_receta(request):
 	id_receta = path[len_path:n_recetas]
 	id_receta = id_receta
 
+	if request.method == 'POST':
+		form1 = Form_Buscar_Receta(request.POST)
+		if form1.is_valid():
+			#Array de Errores.
+			errores = []
 
-	if ( len(id_receta) > 0 ):
-		Listado_Recetas = Receta.objects.all()
-		receta = Listado_Recetas[int(id_receta)-1]
-		Listado_Recetas = Listado_Recetas.order_by('titulo')
-		return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas, 'receta':receta}, context_instance=RequestContext(request))
+			titulo = form1.cleaned_data['titulo']
+			autor = form1.cleaned_data['autor']
+			grupo = form1.cleaned_data['grupo']
+			grupo = grupo.__str__()
+			grupo = grupo[3:4]
+			dificultad = form1.cleaned_data['dificultad']
+			dificultad = dificultad.__str__()
+			dificultad = dificultad[3:4]
+			print grupo
+			print dificultad
+
+
+			if ( len(id_receta) > 0 ):
+				Listado_Recetas = Receta.objects.all()
+				receta = Listado_Recetas[int(id_receta)-1]
+				Listado_Recetas = Listado_Recetas.order_by('titulo')
+				return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas, 'receta':receta,'form1':form1}, context_instance=RequestContext(request))
+			else:
+				Listado_Recetas = Receta.objects.all()
+				if ( len(titulo) > 0 ):
+					Listado_Recetas = Listado_Recetas.filter(titulo=titulo)
+				if ( len(autor) > 0 ):
+					Listado_Recetas = Listado_Recetas.filter(autor=autor)
+				if ( grupo != 'X' ):
+					Listado_Recetas = Listado_Recetas.filter(grupo=grupo)
+				if ( dificultad != 'X' ) :
+					Listado_Recetas = Listado_Recetas.filter(dificultad=dificultad)
+				Listado_Recetas = Listado_Recetas.order_by('titulo')
+				return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas,'form1':form1}, context_instance=RequestContext(request))
+
+
+		else:
+			errores = []
+			errores.append(' Fallo al rellenar el formulario de busqueda. ')
+			return render_to_response('recetas/recetas.html', {'form1':form1, 'errores':errores}, context_instance=RequestContext(request))
 	else:
-		print "pepeeee"
-		Listado_Recetas = Receta.objects.all()
-		Listado_Recetas = Listado_Recetas.order_by('titulo')
-		return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas}, context_instance=RequestContext(request))
+		form1 = Form_Buscar_Receta()
+
+		if ( len(id_receta) > 0 ):
+			Listado_Recetas = Receta.objects.all()
+			receta = Listado_Recetas[int(id_receta)-1]
+			print receta.grupo
+			Listado_Recetas = Listado_Recetas.order_by('titulo')
+			return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas, 'receta':receta,'form1':form1}, context_instance=RequestContext(request))
+		else:
+			Listado_Recetas = Receta.objects.all()
+			Listado_Recetas = Listado_Recetas.order_by('titulo')
+			return render_to_response('recetas/recetas.html', {'lista':Listado_Recetas,'form1':form1}, context_instance=RequestContext(request))

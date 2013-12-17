@@ -29,3 +29,26 @@ class Form_Receta(forms.Form):
 	ingredientes = forms.CharField(widget=forms.Textarea, max_length=5000, label='Ingredientes')
 	elaboracion = forms.CharField(widget=forms.Textarea, max_length=5000, label='Elaboracion')
 	hora_subida = models.DateTimeField(blank=True)
+
+class Form_Buscar_Receta(forms.Form):
+	GRUPOS = (
+		('X', 'Group'),
+		('C', 'Carne'),
+		('P', 'Pescado'),
+		('Z', 'Pasta y Pizza'),
+		('E', 'Ensaladas'),
+		('H', 'Postres y Helados'),
+		('O', 'Otros'),
+		)
+
+	DIFICULTADES = (
+		('X', 'Dificulty'),
+		('F', 'Facil'),
+		('M', 'Medio'),
+		('D', 'Dificil'),
+		)
+
+	titulo = forms.CharField(required=False, max_length=50, label='Titulo')
+	autor = forms.CharField(required=False, max_length=50, label='Autor')
+	grupo = MultipleChoiceField(required=False, widget=SelectMultiple(), choices=GRUPOS, label ='Grupo')
+	dificultad = MultipleChoiceField(required=False, widget=SelectMultiple(), choices=DIFICULTADES, label='Dificultad')
