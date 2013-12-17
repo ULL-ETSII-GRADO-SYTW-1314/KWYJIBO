@@ -82,19 +82,19 @@ def subir_receta(request):
 
 			#SECCION DE LOS INGREDIENTES DE LA RECETA.
 
-			if(Receta.checkCharField(form.cleaned_data['ingredientes']) is not None):
-				ingredientes = Receta.checkCharField(form.cleaned_data['ingredientes'])
-				Nueva_Receta.ingredientes = ingredientes
-			else:
-				errores.append('El campo "ingredientes" contiene caracteres no validos. ')
+			#if(Receta.checkChar2Field(form.cleaned_data['ingredientes']) is not None):
+				#ingredientes = Receta.checkCharField(form.cleaned_data['ingredientes'])
+			Nueva_Receta.ingredientes = form.cleaned_data['ingredientes']
+			#else:
+				#errores.append('El campo "ingredientes" contiene caracteres no validos. ')
 
 			#SECCION DE LA ELABORACION DE LA RECETA.
 
-			if(Receta.checkCharField(form.cleaned_data['elaboracion']) is not None):
-				elaboracion = Receta.checkCharField(form.cleaned_data['elaboracion'])
-				Nueva_Receta.elaboracion = elaboracion
-			else:
-				errores.append('El campo "elaboracion" contiene caracteres no validos. ')
+			#if(Receta.checkChar2Field(form.cleaned_data['elaboracion']) is not None):
+			#elaboracion = Receta.checkCharField(form.cleaned_data['elaboracion'])
+			Nueva_Receta.elaboracion = form.cleaned_data['elaboracion']
+			#else:
+				#errores.append('El campo "elaboracion" contiene caracteres no validos. ')
 
 			Nueva_Receta.imagen = form.cleaned_data['imagen']
 

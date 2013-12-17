@@ -26,7 +26,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'BBDD_Kwyjibo',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'Recetas',
     'Usuarios',
-    #'lettuce.django',
+    'lettuce.django',
 )
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

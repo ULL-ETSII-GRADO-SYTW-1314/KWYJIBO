@@ -55,3 +55,14 @@ class Receta(models.Model):
 			return valid
 		else: 
 			return None
+
+	@classmethod
+	def checkChar2Field(self, text):
+		valid = text
+		if ((len(valid) > 1) and (len(valid) < 51)): 
+			if re.match(r'([\s\t\n\r_a-zA-Z0-9]+)$', valid):
+				return valid
+			else:
+				return None
+		else: 
+			return None
